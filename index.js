@@ -1,58 +1,29 @@
-// Define our dependencies
-const express        = require('express');
-const session        = require('express-session');
-const axios          = require('axios');
-const winston        = require('winston');
-const logger         = require('./logs/Wlogger');
+const express   = require('express');
+const morgan    = require('morgan');
+const mongoose  = require('mongoose');
+const cors      = require('cors');
 
-//local files
-const routes        = require('./routes');
-//
-//======================================================================================
+const app = express();
 
+// Database setupx
+mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true, useCreateIndex: true});
 
-const cors = require('cors');
-
-//start db connection
-try{
-    mongoose.connect('mongodb://localhost:twitch/vote-your-landing', { useNewUrlParser: true, useCreateIndex: true });
-    console.log("mongo connected")
-}catch(err){//
-    console.log(err);
-}
-
-
-// Initialize Express and middlewares
-let app = express();
-
-
-
-app.use(express.static('public'));
-app.use(cors());
+// Middlewares setup
+app.use(morgan('combined'));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors());//
 
-
-
-app.use(routes);
-
-//
-
-//production setup
-
-// app.post('/auth/')
-// // If we are in production, serve our clients build folder.
-// // This folder is created during production
+// If we are in production serve our clients build  folder//
+// This folder is created during production only
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
-    logger.add(new winston.transports.Console({
-        format: winston.format.simple()
-    }));
 }
 
-// // Server setup
+// Routes setup
+const routes = require('./routes');
+app.use(routes);
+
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, function () {
-    console.log(`Twitch auth sample listening on port ${PORT}`)
-});
+app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`));

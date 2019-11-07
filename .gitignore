@@ -1,7 +1,5 @@
 node_modules
-config.js
-
-.idea/manageyourchill.iml
+package-lock.json
+.DS_Store
 .idea/
-MasterCombinedLog.log
-error.log
+config/dev.js

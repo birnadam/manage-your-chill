@@ -2,38 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs/Wlogger.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/apiRoutes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Button/CounterButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Signin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Signout.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Stuff.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/containers/Todo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/hoc/requireAuth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/reducers/todo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/keys.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/todoController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middlewares/authMiddlewares.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/Todo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/User.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/apiRoutes/authRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/apiRoutes/todoRoutes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/manageyourchill.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/manageyourchill.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/client/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/Wlogger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/logo512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/apiRoutes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +65,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/src/containers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -107,7 +123,8 @@
       <option name="presentableId" value="Default" />
       <updated>1572651635423</updated>
       <workItem from="1572651636929" duration="1532000" />
-      <workItem from="1573093089600" duration="1382000" />
+      <workItem from="1573093089600" duration="3356000" />
+      <workItem from="1573105994900" duration="299000" />
     </task>
     <servers />
   </component>

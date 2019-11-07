@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/manageyourchill.iml" filepath="$PROJECT_DIR$/.idea/manageyourchill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../UCB-Code/twitch-battleRoyalMap-extension/.idea/twitch-battleRoyalMap-extension.iml" filepath="$PROJECT_DIR$/../../UCB-Code/twitch-battleRoyalMap-extension/.idea/twitch-battleRoyalMap-extension.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,7 @@
 node_modules
 config.js
 
-.idea
+.idea/manageyourchill.iml
+.idea/
 MasterCombinedLog.log
 error.log

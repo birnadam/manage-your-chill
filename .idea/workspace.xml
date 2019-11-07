@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +79,8 @@
       <updated>1572651635423</updated>
       <workItem from="1572651636929" duration="1532000" />
       <workItem from="1573093089600" duration="3356000" />
-      <workItem from="1573105994900" duration="2811000" />
+      <workItem from="1573105994900" duration="3936000" />
+      <workItem from="1573161211201" duration="1505000" />
     </task>
     <servers />
   </component>

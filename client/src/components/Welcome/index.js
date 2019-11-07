@@ -11,7 +11,7 @@ const Welcome = () => {
   return (
     <div className={s.page}>
         <div className={s.logoHeader}>
-            <img src={"https://perma.cool/wp-content/uploads/2019/03/site-icon-1.png"} alt={"Perma.Cool logo"} className={s.imgHeader}/>
+            <img src={"https://perma.cool/wp-content/uploads/2019/03/site-icon-1.png"} alt={"Perma.Cool logo"} width={"500px"} />
             <h1>Manage your chill</h1>
         </div>
         <div className={s.component}>

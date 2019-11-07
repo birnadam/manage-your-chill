@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/NavBarHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/NavBarHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +81,7 @@
       <updated>1572651635423</updated>
       <workItem from="1572651636929" duration="1532000" />
       <workItem from="1573093089600" duration="3356000" />
-      <workItem from="1573105994900" duration="2276000" />
+      <workItem from="1573105994900" duration="2811000" />
     </task>
     <servers />
   </component>

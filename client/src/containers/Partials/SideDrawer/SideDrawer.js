@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './SideDrawer.css';
 import NavLinks from '../../NavLinks';
-import Userinfo from '../../Userinfo/Userinfo';
+// import Userinfo from '../../Userinfo/Userinfo';
 
 const sideDrawer = props => {
 
@@ -13,7 +13,7 @@ const sideDrawer = props => {
     return (
         <nav className= {drawerClasses}>
             <ul>
-                <Userinfo userData={props.userData} />
+                {/*<Userinfo userData={props.userData} />*/}
                 <li> USER NAME</li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/map">MAP</a></li>

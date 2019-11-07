@@ -1,0 +1,17 @@
+
+
+.page{
+  display: flex;
+  flex-direction: column;
+}
+
+.logoHeader{
+  flex-direction: column;
+}
+.imgHeader{
+  width: 50px;
+}
+
+.component{
+
+}

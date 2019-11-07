@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Toolbar from './Partials/Toolbar';
 import SideDrawer from './Partials/SideDrawer/SideDrawer';
 import Backdrop from './Backdrop/Backdrop';
-import "./Welcome.css";
+// import "./Welcome.css";
 import * as actions from "../actions";
 
 class NavBarHeader extends Component {

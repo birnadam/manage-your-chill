@@ -7,7 +7,6 @@ TODO
 
 #backend
 * refactor the code so that mysql is used instead of mongodb.
-* create a virtual chiller program which generates fake chiller data.
 * create a post route to input 5-10 minutes of data at a time. 
 * create a post route to serve a specific range of data for the graph of the past temprature readings.
 * create a get route to get status with current temperature.
@@ -33,5 +32,5 @@ TODO
 * build the single chiller component 
 * build a nice graph utility for the single chiller component.
 * build a setting page for user settings. specifically setting your account info and notification settings like phone number.
-* build a over and under temperatue Alarm settings page.
-*
+* build a over and under temperature Alarm settings page.
+* create a virtual chiller program which generates fake chiller data to demo the front end.

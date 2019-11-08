@@ -1,8 +1,13 @@
 const mysql = require('mysql2/promise');
 
+//mysql promise ORM which allows users to add data and get data using a connection pool.
 
 module.exports = {
-    db:"standard_db",
+    db:"manage_your_chill",
+
+    //Get Connections takes a DB name string and a password.
+    //run this commend before running the other commands in this controller.
+    // remember to end() the connection object after your done using it
     GetConnection: async function (db=this.db, pass="password") {
         try {
             return await mysql.createConnection({
@@ -95,6 +100,32 @@ module.exports = {
         } catch (err) {
             throw err;
         }
+    },
+// inserts new users into the database
+insertNewUser: async function(con, tableOneCol, InsertObject) {
+    let queryString =
+        `INSERT INTO ${tableOneCol} SET ?;`;
+    try {
+        console.log(InsertObject)
+        let response = await con.query(
+            queryString, {
+                fullName: InsertObject.fullName,
+                email: InsertObject.email,
+                password: InsertObject.password,
+                createdOn: InsertObject.createdOn
+            });
+        return new Promise((resolve, reject) => {
+            if (response) {
+                resolve(response[0]);
+            } else {
+                reject({ err: "SQL server Response Error code:500 in method InsertNewUser()" });
+            }
+        });
+    } catch (err) {
+        console.log("error inserting data to table");
+        throw err;
     }
-    //end of methods
+}
+
+//end of methods
 }

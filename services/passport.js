@@ -1,9 +1,13 @@
 const passport      = require('passport');
-const User          = require('./../models/User');
-const config        = require('./../config/keys');;
+// const User          = require('./../models/User');
+const config        = require('./../config/keys');
 const JwtStrategy   = require('passport-jwt').Strategy;
 const ExtractJwt    = require('passport-jwt').ExtractJwt;
 const LocalStrategy = require('passport-local');
+const sql           = require('./../controllers/mysql2ORMController');
+const bcrypt        = require("bcryptjs");
+
+
 
 // Create local strategy
 
@@ -13,18 +17,19 @@ const localOptions = { usernameField: 'email' };
 const localLogin = new LocalStrategy(localOptions, async (email, password, done) => {
 
   try {
-    const user = await User.findOne({ email });
-    if(!user) {
+    let con = await sql.GetConnection();
+    const user = await sql.selectWhere(con,"users","email",email);
+    con.end();
+    if(user.length==0) {
       return done(null, false);
-    }
+    }a
+    console.log(user);
+    const isMatch = await bcrypt.compare(password, user.password);
 
-    user.comparePassword(password, (err, isMatch) => {
-      if(err) return done(err);
-      if(!isMatch) {
-        return done(null, false);
-      }
-      return done(null, user);
-    });
+    if(!isMatch){
+      done(null, false);
+    }
+    done(null, user);
 
   } catch(e) {
     done(e, false);
@@ -49,8 +54,10 @@ const jwtOptions = {
 // The payload argument is coming frm the function that we will create in authRoutes
 // done is the function we call once we tried to authenticate this user
 const jwtLogin = new JwtStrategy(jwtOptions, async (payload, done) => {
-  try {
-    const user = await User.findById(payload.sub);
+  try {//payload.sub
+    let con = await sql.GetConnection();
+    const user = await sql.selectWhere(con,"users","id",payload.sub);
+    con.end();
     if(user) {
       done(null, user);
     } else {

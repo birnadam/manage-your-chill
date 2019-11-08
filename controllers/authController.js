@@ -1,4 +1,4 @@
-const db      = require('./../models');
+// const db      = require('./../models');
 const sql     = require("./mysql2ORMController");
 const jwt     = require('jwt-simple');
 const config  = require('./../config/keys.js');
@@ -39,6 +39,7 @@ module.exports = {
       console.log('hash', hash);
       InsertObj.password=hash;
       const user = await sql.insertNewUser(con,"users",InsertObj);
+      con.end();
       console.log(user);
       res.json({ token: tokenForUser(user)});
     } catch(e) {
@@ -46,6 +47,7 @@ module.exports = {
     }
   },
   signIn: (req, res) => {
+    //check if
     res.send({ token: tokenForUser(req.user)});
   }
 };

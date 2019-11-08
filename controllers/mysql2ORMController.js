@@ -64,7 +64,7 @@ module.exports = {
         }
     },
 
-    selectAndOrder: function (con, whatToSelect, table, orderCol) {
+    selectAndOrder: async function (con, whatToSelect, table, orderCol) {
         let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
         console.log(queryString);
         try {
@@ -82,7 +82,7 @@ module.exports = {
         }
     },
 
-    findWhoHasMost: function (con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
+    findWhoHasMost: async function (con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
         let queryString =
             "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
         try {

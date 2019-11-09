@@ -14,23 +14,20 @@ class Welcome extends Component {
         this.state = {
             signIn:true
         };
-    }
-    signInOrSignUp(){
-        if(this.state.signIn){
-            return <Signin/>
-        }
-        else{
-            return <Signup/>
-        }
+
+        this.switchToSignup = this.switchToSignup.bind(this);
     }
 
-    swithtoSignup(){
-        if(this.state.signIn == true) {
-            this.setState({signIn: false});
-        }else{
+    switchToSignup(){
+        if(this.state.signIn){
+            this.setState({signIn:false});
+        }
+        else{
             this.setState({signIn:true});
         }
     }
+
+
     render() {
         return (
             <div className={s.page}>
@@ -39,8 +36,11 @@ class Welcome extends Component {
                     <h1>Manage your chill</h1>
                 </div>
                 <div className={s.component}>
-                    {this.signInOrSignUp()}
-                    <button onClick={this.swithtoSignup}>signUp</button>
+                    {this.state.signIn ? (
+                        <Signin/>):
+                        (<Signup/>)
+                    }
+                    <button onClick={this.switchToSignup}>{this.state.signIn ? ("signUp"):("SignIn")}</button>
 
                 </div>
             </div>

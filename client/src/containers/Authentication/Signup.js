@@ -6,6 +6,11 @@ import { signup } from "../../actions";
 import validator from 'validator';
 
 class Signup extends Component {
+    constructor(props){
+        super(props);
+
+        this.onSubmit = this.onSubmit.bind(this);
+    }
   renderErrors = ({ error, touched }) => {
     if(touched && error) {
       return (
@@ -35,7 +40,7 @@ class Signup extends Component {
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
@@ -47,6 +52,14 @@ class Signup extends Component {
             component={this.renderInput}
             autoComplete='none'/>
         </fieldset>
+          <fieldset>
+              <Field
+                  name='fullName'
+                  type='text'
+                  label='fullName'
+                  component={this.renderInput}
+                  autoComplete='none'/>
+          </fieldset>
         <fieldset>
           <Field
             name='password'

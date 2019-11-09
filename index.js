@@ -1,12 +1,12 @@
 const express   = require('express');
 const morgan    = require('morgan');
-const mongoose  = require('mongoose');
+// const mongoose  = require('mongoose');
 const cors      = require('cors');
 
 const app = express();
 
 // Database setupx
-mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true, useCreateIndex: true});
+// mongoose.connect('mongodb://localhost:auth/auth', { useNewUrlParser: true, useCreateIndex: true});
 
 // Middlewares setup
 app.use(morgan('combined'));

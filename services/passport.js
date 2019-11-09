@@ -6,6 +6,7 @@ const ExtractJwt    = require('passport-jwt').ExtractJwt;
 const LocalStrategy = require('passport-local');
 const sql           = require('./../controllers/mysql2ORMController');
 const bcrypt        = require("bcryptjs");
+const logger        = require('../logs/Wlogger.js')
 
 
 
@@ -21,14 +22,26 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
     const user = await sql.selectWhere(con,"users","email",email);
     con.end();
     if(user.length==0) {
+      logger.log({
+        level: 'info',
+        message: `LOCAL LOGIN FAIL |||| ${email} || ${password} || `
+      });
       return done(null, false);
-    }a
+    }
     console.log(user);
+    logger.log({
+      level: 'info',
+      message: `LOCAL LOGIN attempt by |||| ${user} || ${email}|${password} || `
+    });
     const isMatch = await bcrypt.compare(password, user.password);
 
     if(!isMatch){
       done(null, false);
     }
+    logger.log({
+      level: 'info',
+      message: `LOCAL LOGIN success by |||| ${user} || ${email}|${password} || `
+    });
     done(null, user);
 
   } catch(e) {
@@ -58,12 +71,24 @@ const jwtLogin = new JwtStrategy(jwtOptions, async (payload, done) => {
     let con = await sql.GetConnection();
     const user = await sql.selectWhere(con,"users","id",payload.sub);
     con.end();
-    if(user) {
-      done(null, user);
-    } else {
+    if(user.length == 0) {
+      logger.log({
+        level: 'info',
+        message: `JWT LOGIN attempt by |||| ${user} || ${payload.sub}|| `
+      });
       done(null, false);
+    } else {
+      logger.log({
+        level: 'info',
+        message: `JWT LOGIN success by |||| ${user} || ${payload.sub}|| `
+      });
+      done(null, user);
     }
   } catch(e) {
+    logger.log({
+      level: 'error',
+      message: `JWT LOGIN attempt by |||| ${e} ||`
+    });
     done(e, false);
   }
 });

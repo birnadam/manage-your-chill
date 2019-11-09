@@ -18,10 +18,12 @@ export const decrementCounter = () => {
 export const signup = (formProps, callback) => async dispatch => {
   try {
     const res = await axios.post('/api/auth/signup', formProps);
+    console.log(res);
     dispatch({ type: AUTH_USER, payload: res.data.token });
     localStorage.setItem('token', res.data.token);
     callback();
   } catch(e) {
+    console.log(e);
     dispatch({ type: AUTH_ERROR, payload: 'Email in use' });
   }
 };

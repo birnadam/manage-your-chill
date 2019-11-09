@@ -10,5 +10,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="twitch-battleRoyalMap-extension" />
+    <orderEntry type="module" module-name="manny-boilerplate-jwt-authentication" />
   </component>
 </module>

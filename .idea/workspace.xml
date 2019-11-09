@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/logs/Wlogger.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/mysql2ORMController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mysql2ORMController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/passport.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -94,7 +88,7 @@
       <workItem from="1573171351849" duration="241000" />
       <workItem from="1573176148839" duration="1835000" />
       <workItem from="1573186793596" duration="8297000" />
-      <workItem from="1573256582347" duration="10036000" />
+      <workItem from="1573256582347" duration="11171000" />
     </task>
     <servers />
   </component>

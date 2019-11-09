@@ -15,7 +15,8 @@ class Welcome extends Component {
             signIn:true
         };
 
-        this.switchToSignup = this.switchToSignup.bind(this);
+        this.switchToSignup     = this.switchToSignup.bind(this);
+        this.postLogin          = this.postLogin.bind(this);
     }
 
     switchToSignup(){
@@ -25,6 +26,10 @@ class Welcome extends Component {
         else{
             this.setState({signIn:true});
         }
+    }
+
+    postLogin(){
+        this.props.history.push('/counter');
     }
 
 
@@ -37,8 +42,8 @@ class Welcome extends Component {
                 </div>
                 <div className={s.component}>
                     {this.state.signIn ? (
-                        <Signin/>):
-                        (<Signup/>)
+                        <Signin success={this.postLogin}/>):
+                        (<Signup success={this.postLogin}/>)
                     }
                     <button onClick={this.switchToSignup}>{this.state.signIn ? ("signUp"):("SignIn")}</button>
 

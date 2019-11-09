@@ -33,7 +33,9 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
       level: 'info',
       message: `LOCAL LOGIN attempt by |||| ${user} || ${email}|${password} || `
     });
-    const isMatch = await bcrypt.compare(password, user.password);
+    console.log(password);
+    console.log(user[0].password);
+    const isMatch = await bcrypt.compare(password, user[0].password);
 
     if(!isMatch){
       done(null, false);

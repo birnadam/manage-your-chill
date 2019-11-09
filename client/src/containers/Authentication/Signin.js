@@ -9,7 +9,7 @@ class Signin extends Component {
 
   onSubmit = formValues => {
     this.props.signin(formValues, () => {
-      this.props.history.push('/counter');
+      this.props.success();
     });
   }
 

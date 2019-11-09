@@ -7,7 +7,7 @@ TODO
 
 #backend
 
-* refactor the code so that mysql is used instead of mongodb.
+* refactor the code so that mysql is used instead of mongodb. semi complaint.
 * create a post route to input 5-10 minutes of data at a time. 
 * create a post route to serve a specific range of data for the graph of the past temprature readings.
 * create a get route to get status with current temperature.

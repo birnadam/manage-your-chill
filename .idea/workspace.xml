@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/manageyourchill.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/manageyourchill.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/todoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/todoController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/apiRoutes/todoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/todoRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
@@ -91,7 +89,7 @@
       <workItem from="1573171351849" duration="241000" />
       <workItem from="1573176148839" duration="1835000" />
       <workItem from="1573186793596" duration="8297000" />
-      <workItem from="1573256582347" duration="14869000" />
+      <workItem from="1573256582347" duration="19754000" />
     </task>
     <servers />
   </component>

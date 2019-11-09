@@ -1,4 +1,5 @@
 const db = require('./../models');
+const sql = require("../controllers/mysql2ORMController");
 
 module.exports = {
   getTodos: async (req, res) => {

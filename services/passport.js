@@ -65,12 +65,14 @@ const jwtOptions = {
   secretOrKey: config.secret
 };
 
+
 // We are going to get the payload argument from an incoming request
 // The payload argument is coming frm the function that we will create in authRoutes
 // done is the function we call once we tried to authenticate this user
 const jwtLogin = new JwtStrategy(jwtOptions, async (payload, done) => {
   try {//payload.sub
     let con = await sql.GetConnection();
+    console.log(jwtOptions.jwtFromRequest());
     const user = await sql.selectWhere(con,"users","id",payload.sub);
     con.end();
     if(user.length == 0) {
@@ -89,7 +91,7 @@ const jwtLogin = new JwtStrategy(jwtOptions, async (payload, done) => {
   } catch(e) {
     logger.log({
       level: 'error',
-      message: `JWT LOGIN attempt by |||| ${e} ||`
+      message: `JWT LOGIN error by |||| ${e} ||`
     });
     done(e, false);
   }

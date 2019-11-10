@@ -1,4 +1,5 @@
-const sql = require('../controllers/mysql2ORMController');
+const sql   = require('../controllers/mysql2ORMController');
+const fs    = require('fs');
 
 class VirtualChiller{
     constructor(){
@@ -9,46 +10,88 @@ class VirtualChiller{
             tempA:72,
             humidity:13
         };
+        this.currentState = {
+            temp1:-40,
+            temp2:-85,
+            temp3:-62,
+            tempA:72,
+            humidity:13
+        };
         this.chillerHistory = [];
         this.state = {
             running:false,
-            event:no
+            event:"none",
+            intervalID:{},
+            time:100
         };
+        this.generateChillerDatapoint     = this.generateChillerDatapoint.bind(this);
+        this.pushNewData                  = this.pushNewData.bind(this);
+        this.upOrDown                     = this.upOrDown.bind(this);
     }
-    startChiller = async function(){
-
-    };
-    generateChillerDatapoint = function (cState) {
-        let newState = {};
-        newState.temp1 = this.upOrDown() ? (chState.temp1+Math.random()):(chState.temp1-Math.random());
-
-        return {
-            temp1:Math.floor(40+(Math.random()*5))*-1,
-            temp2:Math.floor(80+(Math.random()*5))*-1,
-            temp3:Math.floor(60+(Math.random()*5))*-1,
-            tempA:Math.floor(70+(Math.random()*20)),
+    startChiller(){
+        console.log("starting chiller");
+        for(let i = 5000; i>0;i--){
+            this.pushNewData()
         }
+        console.log(this.chillerHistory);
+    };
+
+    pushNewData(){
+        let cstate = this.currentState;
+        let newData = this.generateChillerDatapoint(cstate);
+        if(this.chillerHistory.length>120){
+            this.chillerHistory.shift();
+        }
+        this.chillerHistory.push(newData);
+        this.currentState = newData;
+        console.log(newData);
+    }
+
+
+    generateChillerDatapoint(currentState) {
+        let newState = {};
+        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,8) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
+        newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,5) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
+        newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,8) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
+        newState.tempA = this.upOrDown(this.chillerStartingState.tempA,currentState.tempA,20) ? (currentState.tempA+Math.random()):(currentState.tempA-Math.random());
+        newState.humidity = this.upOrDown(this.chillerStartingState.humidity,currentState.humidity,2) ? (currentState.humidity+Math.random()):(currentState.humidity-Math.random());
+        return newState;
     }
     //decided if the temp goes up or down based on the current temp and the starting temp and variability.
     //return true for positive number addition to temp and false for negative number
-    upOrDown = function(startingTemp, currentTemp, variability){
-        // if the differnece between the starting and current is a positive number
-        if(startingTemp-currentTemp > 0){
-            //starting is 70 current is 62 diff 8
-            if(startingTemp-currentTemp>=variability){
-                //number should drop in value
-                return false;
+    upOrDown(startingTemp, currentTemp, variability){
+        // if the current is a positive number
+        if(currentTemp > 0){
+            //starting is 70 current is 60 diff 10
+            //and the difference is a positive number meaning its less than it should be
+            if(startingTemp-currentTemp>0){
+                if(startingTemp-currentTemp>=variability){
+                    //increase the number to keep it within the variability
+                    return true;
+                }
             }//starting is 70 current is 82 diff -12
-            if(startingTemp-currentTemp<0 && startingTemp-currentTemp*-1>= variability){
-                return false
+                //is a negative difference
+            else{
+                if(startingTemp-currentTemp*-1>=variability){
+                    return false;
+                }
             }
         }// if the difference is a negative number
-        else if (startingTemp-currentTemp<0){
-            //starting is -40 current is -32 diff -8
-            //starting is -40 current is -55 diff
-            if(startingTemp-currentTemp*-1 >= variability){
-                //step up to a higher number
-                return true;
+        else if (currentTemp<0){
+            //starting is -40 current is -55 diff 15
+            //diff is positive number
+            if(startingTemp-currentTemp >0){
+                if(startingTemp-currentTemp>=variability){
+                    //increase the number to keep it within the variability
+                    return true;
+                }
+            }
+            else{
+                //starting is -40 current is -32 diff -8
+                if(startingTemp-currentTemp*-1>=variability){
+                    //increase the number to keep it within the variability
+                    return false;
+                }
             }
         }
         //if there is no difference or to generate a random move
@@ -61,3 +104,16 @@ class VirtualChiller{
     }
 
 }
+
+const VC = new VirtualChiller();
+let cState = VC.currentState;
+VC.startChiller();
+
+fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
+        if (err) {
+            console.log("An error occured while writing JSON Object to File.");
+            return console.log(err);
+        }
+
+        console.log("JSON file has been saved.");
+    });

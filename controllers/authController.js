@@ -12,6 +12,11 @@ const tokenForUser = function(user) {
   // Sub === subject
   // iat === issued at time
   // Its going to encode the whole 1st object and then add our secret to it
+  logger.log({
+    level: 'info',
+    message: `creating token for id ${user.id}  ||`
+  });
+  // console.log(user);
   return jwt.encode({ sub: user.id, iat: timestamp}, config.secret);
 };
 

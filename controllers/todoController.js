@@ -4,7 +4,8 @@ const sql = require("../controllers/mysql2ORMController");
 module.exports = {
   getTodos: async (req, res) => {
     try {
-      const user = await db.User.findById(req.user._id).populate('todos');
+      let con = await sql.GetConnection();
+      const user = await sql.selectWhere(con,"users","id",req.id);
       console.log(user.todos);
       res.json({ todos: user.todos });
     } catch(e) {

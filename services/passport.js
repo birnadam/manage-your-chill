@@ -42,9 +42,9 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
     }
     logger.log({
       level: 'info',
-      message: `LOCAL LOGIN success by |||| ${user} || ${email}|${password} || `
+      message: `LOCAL LOGIN success by |||| ${JSON.stringify(user[0])} || ${email}|${password} || `
     });
-    done(null, user);
+    done(null, user[0]);
 
   } catch(e) {
     done(e, false);
@@ -72,7 +72,7 @@ const jwtOptions = {
 const jwtLogin = new JwtStrategy(jwtOptions, async (payload, done) => {
   try {//payload.sub
     let con = await sql.GetConnection();
-    console.log(jwtOptions.jwtFromRequest());
+    console.log(payload);
     const user = await sql.selectWhere(con,"users","id",payload.sub);
     con.end();
     if(user.length == 0) {

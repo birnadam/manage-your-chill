@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*=============== START SignIn/SignUp Modals Styles ===============*/
+.modal-block {
+  transition: all 0.2s ease-in-out;
+  color: #3e3e3b;
+  overflow: hidden;
+  border-radius: 15px;
+  max-width: 480px;
+  background-color: #29b6f6;
+  color: white;
+  box-shadow: 8px 8px 20px #4c586f;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  border: 1px solid #3e3e3b;
+}
+
+.modal-block:hover {
+  opacity: 0.9;
+}
+
+.modal-block > .modal-block-content {
+  background-color: inherit;
+  padding: 0px 80px;
+}
+/*=============== END SignIn/SignUp Modals Styles ===============*/
+
+/*=============== START Button Toggles Styles ===============*/
+#stylingButton {
+  position: relative;
+  top: -331px;
+  right: 300px;
+  width: 500px;
+  height: 46px;
+}
+
+#signupButton,
+#signupButtonT {
+  position: relative;
+  top: -402px;
+  right: 56px;
+  width: 150px;
+}
+
+#loginButton,
+#loginButtonT {
+  position: relative;
+  top: -402px;
+  right: -240px;
+  width: 150px;
+}
+#stylingButton,
+#signupButton,
+#signupButtonT,
+#loginButton,
+#loginButtonT {
+  border: 1px solid #3e3e3b;
+}
+
+#signupButton:hover,
+#signupButton:active,
+#loginButton:active,
+#loginButton:hover {
+  background-color: inherit;
+  color: white;
+}
+/*=============== END Button Toggles Styles ===============*/
+
+/*=============== START Form Styles ===============*/
+.form-horizontal {
+  position: relative;
+  top: -70px;
+  margin-top: 0px;
+}
+
+.form-horizontal > .form-group {
+  text-align: center;
+}
+
+.form-horizontal > .form-group > .label {
+  font-size: 1em;
+  letter-spacing: 0.075em;
+  color: #a2aab0;
+  padding: 0;
+}
+
+.form-horizontal > .form-group > .submit {
+  position: relative;
+  top: 25px;
+}
+p {
+  font-size: 0.75em;
+  color: #687a92;
+}
+
+#labelColor {
+  color: #ebeced;
+}
+/*===============END Form Styles ===============*/
+
+/*=============== START Button Styles ===============*/
+.btn {
+  font-weight: 700;
+  padding: 10px 24px;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.btn-radius {
+  -webkit-transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
+  transition: border-radius 0.4s cubic-bezier(1, 0.885, 0.32, 1.275);
+}
+
+.btn-radius:hover {
+  border-radius: 5px;
+  border-color: #ebeced;
+  box-shadow: 0 0 0.3rem #ebeced;
+}
+
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:hover,
+.btn-primary:active:focus {
+  background-color: #4c586f;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  background-color: inherit;
+  color: white;
+}
+
+.submit {
+  margin-top: 15px;
+}
+/*=============== END Button Styles ===============*/

@@ -1,0 +1,13 @@
+.wrapper {
+  background-image: url("https://i-love-png.com/images/04320new20york.png");
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  height: 100%;
+  display: relative;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-bottom: 50px;
+}

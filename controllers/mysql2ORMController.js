@@ -115,10 +115,10 @@ module.exports = {
     },
 
     selectChillerDataForIDInDesc: async function (con, chillerID, orderCol) {
-        let queryString = "SELECT * FROM chillerData WHERE chillerID = ?? ORDER BY ?? DESC";
+        let queryString = `SELECT * FROM chillerData WHERE chillerID = ${chillerID} ORDER BY ?? DESC`;
         return new Promise(async (resolve, reject) => {
             try {
-                let response = await con.query(queryString, [chillerID, orderCol]);
+                let response = await con.query(queryString, [orderCol]);
                 if (response) {
                     resolve(response);
                 }

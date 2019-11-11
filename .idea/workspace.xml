@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/BackendRoutes.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/BackendRoutes.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/chillerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chillerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/mysql2ORMController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mysql2ORMController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
@@ -107,7 +107,7 @@
       <workItem from="1573256582347" duration="23519000" />
       <workItem from="1573375152855" duration="6006000" />
       <workItem from="1573381185310" duration="15405000" />
-      <workItem from="1573461199592" duration="7451000" />
+      <workItem from="1573461199592" duration="9511000" />
     </task>
     <servers />
   </component>

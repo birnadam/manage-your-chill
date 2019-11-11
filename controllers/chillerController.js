@@ -58,9 +58,20 @@ module.exports = {
     getCurrentTempAndStatus: async (req,res) => {
         try{
             let con = await sql.GetConnection();
-            let response = await sql.selectAndOrder(con,"temp1", "chillerData",)
+            // console.log(Object.keys(req.headers));
+            let chillerID = parseInt(req.headers['chillerid']);
+            console.log(chillerID);
+            let response = await sql.selectChillerDataForIDInDesc(con, chillerID, "timestamp");
+            console.log(response);
+            con.end();
+            res.status(200).json(response);
         }catch(e){
-
+            console.log(e);
+            logger.log({
+                level:"error",
+                message:e
+            });
+            res.status(500).json(`error with database`)
         }
     }
 

@@ -37,14 +37,15 @@ CREATE TABLE chillers(
 	id			INTEGER auto_increment,
     location   	VARCHAR(256) NOT NULL,
     ownerID		INTEGER NOT NULL,
-    tableRef	INTEGER NOT NULL,
+    tableRef	VARCHAR(256) NOT NULL,
     primary key (id)
     );
-    
-CREATE TABLE exampleData(
+
+CREATE TABLE chillerData(
 	id						INTEGER auto_increment,
-    internalTemp 			INTEGER NOT NULL,
-    externalTemp			INTEGER NOT NULL,
+    temp1 					INTEGER NOT NULL,
+    temp2					INTEGER NOT NULL,
+    temp3					INTEGER NOT NULL,
     ambientTemp				INTEGER NOT NULL,
     timestamp				INTEGER NOT NULL,
     primary key(id)

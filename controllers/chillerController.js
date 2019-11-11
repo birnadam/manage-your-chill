@@ -33,6 +33,7 @@ module.exports = {
             res.json(e);
         }
     },
+
     getChillersForUser: async (req,res) => {
         try {
             let con = await sql.GetConnection();
@@ -41,7 +42,11 @@ module.exports = {
                 res.status(404).json({ error: 'User not found' });
             }
             let chiller = await sql.selectWhere(con,"chillers","ownerID",req.user[0].id);
-            console.log(chiller);
+            logger.log({
+                level:"info",
+                message:`got chiller list for id: ${req.header}`
+            })
+            con.end();
             res.status(200).json(chiller);
         } catch(e) {
             console.log("ERROR");
@@ -49,5 +54,16 @@ module.exports = {
             res.json(e);
         }
     },
+
+    getCurrentTempAndStatus: async (req,res) => {
+        try{
+            let con = await sql.GetConnection();
+            let response = await sql.selectAndOrder(con,"temp1", "chillerData",)
+        }catch(e){
+
+        }
+    }
+
+
 
 }

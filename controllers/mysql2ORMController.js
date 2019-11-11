@@ -114,6 +114,24 @@ module.exports = {
         }
     },
 
+    selectChillerDataForIDInDesc: async function (con, whatToSelect, table, orderCol) {
+        let queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+        console.log(queryString);
+        try {
+            let response = await con.query(queryString, [whatToSelect, table, orderCol]);
+            return new Promise((resolve, reject) => {
+                if (response) {
+                    resolve(response[0]);
+                }
+                else {
+                    reject({ err: "SQL server response error code:500 in method SelectAndOrder()" })
+                }
+            });
+        } catch (err) {
+            throw err;
+        }
+    },
+
     findWhoHasMost: async function (con, tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
         let queryString =
             "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";

@@ -63,6 +63,7 @@ module.exports = {
             throw err;
         }
     },
+
     selectUserIdFromEmail: async function (con, selector, tableInput, colToSearch, valOfCol) {
         let queryString = `SELECT id FROM users WHERE email ="${valOfCol}"`;
         try {
@@ -156,7 +157,30 @@ insertNewUser: async function(con, tableOneCol, InsertObject) {
         console.log("error inserting data to table");
         throw err;
     }
-}
-
+},
+    // inserts new chiller into the database //table ref is the serial number
+    insertNewChiller: async function(con,  InsertObject) {
+        let queryString =
+            `INSERT INTO chillers SET ?;`;
+        return new Promise( async (resolve,reject) => {
+            try{
+                let response = await con.query(
+                    queryString, {
+                        location: InsertObject.location,
+                        ownerID: InsertObject.ownerID,
+                        serial:InsertObject.serial
+                    });
+                if(response){
+                    console.log(response[0].insertId);
+                    resolve({id:response[0].insertId,msg:"success"});
+                }
+                else{
+                    reject("SQL ERROR 500 in Insert new Chiller");
+                }
+            }catch(e){
+                reject(e);
+            }
+        })
+    }
 //end of methods
 }

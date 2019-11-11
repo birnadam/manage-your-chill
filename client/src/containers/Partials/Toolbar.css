@@ -1,50 +1,49 @@
 .toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #521751;
-    height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0277bd;
+  height: 56px;
 }
 
 .toolbar_navigation {
-    display: flex;
-    height: 100%;
-    align-items : center;
-    padding: 0 1rem;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
 }
 
-.toolbar_logo {
-    margin-left: 90rem;
+.navbar-menu {
+  position: fixed;
+  right: 0%;
+  margin-right: 2%;
+  top: -1%;
 }
 
-.toolbar_logo a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
+.horizontal-list {
+  list-style: none;
+  padding-top: 10px;
 }
 
-.toolbar_navigation-items ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
+.horizontal-list li {
+  display: inline-block;
 }
 
-.spacer {
-    flex: 1;
+.navbar-menu li a {
+  color: #ebeced;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 1px 0;
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 9px 12px 2px 0px;
 }
 
-.toolbar_navigation-items li {
-    padding: 0 0.5rem;
-}
-
-.toolbar_navigation-items a {
-    color: white;
-    text-decoration: none;
-}
-
-.toolbar_navigation-items a:hover,
-.toolbar_navigation-items a:active {
-    color: #fa923f;
+.navbar-menu li a:hover {
+  color: #ebeced;
+  text-shadow: 2px 2px 2px #add8e6;
 }

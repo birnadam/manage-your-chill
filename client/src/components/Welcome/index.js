@@ -1,57 +1,45 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 //component import
-import Signin from "../../containers/Authentication/Signin";
-import Signup from "../../containers/Authentication/Signup";
+import Auth from "../../containers/Authentication";
+// import Signin from "../../containers/Authentication/Signin";
+// import Signup from "../../containers/Authentication/Signup";
 
 //import css
-import s from "./index.css";
-
-
+import "./index.css";
 
 class Welcome extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            signIn:true
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      signIn: true
+    };
 
-        this.switchToSignup     = this.switchToSignup.bind(this);
-        this.postLogin          = this.postLogin.bind(this);
+    this.switchToSignup = this.switchToSignup.bind(this);
+    this.postLogin = this.postLogin.bind(this);
+  }
+
+  switchToSignup() {
+    if (this.state.signIn) {
+      this.setState({ signIn: false });
+    } else {
+      this.setState({ signIn: true });
     }
+  }
 
-    switchToSignup(){
-        if(this.state.signIn){
-            this.setState({signIn:false});
-        }
-        else{
-            this.setState({signIn:true});
-        }
-    }
+  postLogin() {
+    this.props.history.push("/counter");
+  }
 
-    postLogin(){
-        this.props.history.push('/counter');
-    }
-
-
-    render() {
-        return (
-            <div className={s.page}>
-                <div className={s.logoHeader}>
-                    <img src={"https://perma.cool/wp-content/uploads/2019/03/site-icon-1.png"} alt={"Perma.Cool logo"} width={"500px"} />
-                    <h1>Manage your chill</h1>
-                </div>
-                <div className={s.component}>
-                    {this.state.signIn ? (
-                        <Signin success={this.postLogin}/>):
-                        (<Signup success={this.postLogin}/>)
-                    }
-                    <button onClick={this.switchToSignup}>{this.state.signIn ? ("signUp"):("SignIn")}</button>
-
-                </div>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="page">
+        <Auth />
+        <div className="header">
+          <h1>Manage Your Chill</h1>
+        </div>
+      </div>
+    );
+  }
 }
-
 
 export default Welcome;

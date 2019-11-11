@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: #003399;
+  background: #0277bd;
   height: 56px;
 }
 
@@ -44,6 +44,6 @@
 }
 
 .navbar-menu li a:hover {
-  color: #add8e6;
-  text-decoration: none;
+  color: #ebeced;
+  text-shadow: 2px 2px 2px #add8e6;
 }

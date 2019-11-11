@@ -6,7 +6,7 @@ const authMiddleware = require('./../../middlewares/authMiddlewares');
 
 // /api/todo
 
-router.route('/')
+router.route('/')//uses Passport JWT as its auth method.
   .get(authMiddleware.requireAuth, todoController.getTodos)
   .post(authMiddleware.requireAuth, todoController.createTodo)
 

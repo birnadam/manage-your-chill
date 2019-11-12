@@ -34,12 +34,20 @@ CREATE TABLE accounts(
 DROP TABLE IF EXISTS chillers;
 
 CREATE TABLE chillers(
-	id			INTEGER auto_increment,
-    location   	VARCHAR(256) NOT NULL,
-    ownerID		INTEGER NOT NULL,
-    accountId	Integer,
-    serial	VARCHAR(256) NOT NULL,
-    primary key (id)
+	id			    INTEGER auto_increment,
+    location   	    VARCHAR(256) NOT NULL,
+    ownerID		    INTEGER NOT NULL,
+    accountId	    Integer,
+    serial	        VARCHAR(256) NOT NULL,
+    setPoint        VARCHAR(32),
+    overAlarm       VARCHAR(32),
+    underAlarm      VARCHAR(32),
+    firstStartTime  INTEGER,
+    lastStartTime   INTEGER,
+    totalRunTime    INTEGER,
+    running			boolean,
+    statusMsg		VARCHAR(256),
+    primary key     (id)
     );
 
 CREATE TABLE chillerData(

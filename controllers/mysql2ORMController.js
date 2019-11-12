@@ -3,12 +3,12 @@ const mysql = require('mysql2/promise');
 //mysql promise ORM which allows users to add data and get data using a connection pool.
 
 module.exports = {
-    db:"manage_your_chill",
+    db: "manage_your_chill",
 
     //Get Connections takes a DB name string and a password.
     //run this commend before running the other commands in this controller.
     // remember to end() the connection object after your done using it
-    GetConnection: async function (db=this.db, pass="password") {
+    GetConnection: async function (db = this.db, pass = "password") {
         try {
             return await mysql.createConnection({
                 host: "localhost",
@@ -23,26 +23,24 @@ module.exports = {
                 password: pass,
                 database: db
             });
-        }
-        catch (err) {
+        } catch (err) {
             throw err;
         }
 
     },
 
-    selectAllFromTable: async function(con, table){
+    selectAllFromTable: async function (con, table) {
         let queryString = "SELECT * FROM ?"
-        try{
+        try {
             let response = await con.query(queryString, table);
             return new Promise((resolve, reject) => {
-                if(response){
+                if (response) {
                     resolve(response[0]);
-                }
-                else{
-                    reject({err:"MYSQL SERVER ERROR Code:500 in SelectAllFromTable()"})
+                } else {
+                    reject({err: "MYSQL SERVER ERROR Code:500 in SelectAllFromTable()"})
                 }
             })
-        }catch(err){
+        } catch (err) {
             throw err;
         }
     },
@@ -54,9 +52,8 @@ module.exports = {
             return new Promise((resolve, reject) => {
                 if (response) {
                     resolve(response[0]);
-                }
-                else {
-                    reject({ err: "SQL Sever error code:500 in method selectWhere()" })
+                } else {
+                    reject({err: "SQL Sever error code:500 in method selectWhere()"})
                 }
             });
         } catch (err) {
@@ -72,7 +69,7 @@ module.exports = {
                 if (response) {
                     resolve(response[0]);
                 } else {
-                    reject({ err: "SQL Sever error code:500 in method selectWhere()" })
+                    reject({err: "SQL Sever error code:500 in method selectWhere()"})
                 }
             });
         } catch (err) {
@@ -88,7 +85,7 @@ module.exports = {
                 if (response) {
                     resolve(response[0]);
                 } else {
-                    reject({ err: "SQL Sever error code:500 in method selectWhere()" })
+                    reject({err: "SQL Sever error code:500 in method selectWhere()"})
                 }
             });
         } catch (err) {
@@ -104,9 +101,8 @@ module.exports = {
             return new Promise((resolve, reject) => {
                 if (response) {
                     resolve(response[0]);
-                }
-                else {
-                    reject({ err: "SQL server response error code:500 in method SelectAndOrder()" })
+                } else {
+                    reject({err: "SQL server response error code:500 in method SelectAndOrder()"})
                 }
             });
         } catch (err) {
@@ -121,9 +117,8 @@ module.exports = {
                 let response = await con.query(queryString, [orderCol]);
                 if (response) {
                     resolve(response);
-                }
-                else {
-                    reject({ err: "SQL server response error code:500 in method selectChillerDataForIDInDesc()" })
+                } else {
+                    reject({err: "SQL server response error code:500 in method selectChillerDataForIDInDesc()"})
                 }
             } catch (err) {
                 reject(err);
@@ -138,11 +133,11 @@ module.exports = {
             let response = await con.query(
                 queryString,
                 [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
-            return new Promise((resolve,reject) => {
-                if(response){
+            return new Promise((resolve, reject) => {
+                if (response) {
                     resolve(response[0]);
-                }else{
-                    reject({err:"SQL server Response Error code:500 in method findWhoHasMost()"});
+                } else {
+                    reject({err: "SQL server Response Error code:500 in method findWhoHasMost()"});
                 }
             });
 
@@ -151,50 +146,119 @@ module.exports = {
         }
     },
 // inserts new users into the database
-insertNewUser: async function(con, tableOneCol, InsertObject) {
-    let queryString =
-        `INSERT INTO ${tableOneCol} SET ?;`;
-    try {
-        console.log(InsertObject)
-        let response = await con.query(
-            queryString, {
-                fullName: InsertObject.fullName,
-                email: InsertObject.email,
-                password: InsertObject.password,
-                createdOn: InsertObject.createdOn
+    insertNewUser: async function (con, tableOneCol, InsertObject) {
+        let queryString =
+            `INSERT INTO ${tableOneCol} SET ?;`;
+        try {
+            console.log(InsertObject)
+            let response = await con.query(
+                queryString, {
+                    fullName: InsertObject.fullName,
+                    email: InsertObject.email,
+                    password: InsertObject.password,
+                    createdOn: InsertObject.createdOn
+                });
+            return new Promise((resolve, reject) => {
+                if (response) {
+                    resolve(response[0]);
+                } else {
+                    reject({err: "SQL server Response Error code:500 in method InsertNewUser()"});
+                }
             });
-        return new Promise((resolve, reject) => {
-            if (response) {
-                resolve(response[0]);
-            } else {
-                reject({ err: "SQL server Response Error code:500 in method InsertNewUser()" });
-            }
-        });
-    } catch (err) {
-        console.log("error inserting data to table");
-        throw err;
-    }
-},
+        } catch (err) {
+            console.log("error inserting data to table");
+            throw err;
+        }
+    },
     // inserts new chiller into the database //table ref is the serial number
-    insertNewChiller: async function(con,  InsertObject) {
+    insertNewChiller: async function (con, InsertObject) {
         let queryString =
             `INSERT INTO chillers SET ?;`;
-        return new Promise( async (resolve,reject) => {
-            try{
+        return new Promise(async (resolve, reject) => {
+            try {
                 let response = await con.query(
                     queryString, {
                         location: InsertObject.location,
                         ownerID: InsertObject.ownerID,
-                        serial:InsertObject.serial
+                        serial: InsertObject.serial,
+                        setPoint: InsertObject.setPoint
                     });
-                if(response){
+                if (response) {
                     console.log(response[0].insertId);
-                    resolve({id:response[0].insertId,msg:"success"});
-                }
-                else{
+                    resolve({id: response[0].insertId, msg: "success"});
+                } else {
                     reject("SQL ERROR 500 in Insert new Chiller");
                 }
-            }catch(e){
+            } catch (e) {
+                reject(e);
+            }
+        })
+    },
+    // used to update chillers with their start and stop times.
+    updateChillerTime: async function (con, InsertObject, chillerID) {
+        let queryString = `UPDATE chillers
+        SET ?
+        WHERE id = ${chillerID};`
+        return new Promise((resolve, reject) => {
+            try {
+                if (InsertObject.running) {
+                    //if there is no firstStartTime Start Chiller for first time
+                    if (InsertObject.firstStartTime != undefined) {
+                        let res = con.query(queryString, {
+                            firstStartTimeL: InsertObject.firstStartTime,
+                            lastStartTime: InsertObject.lastStartTime,
+                            totalRunTime: InsertObject.totalRunTime,
+                            statusMsg: InsertObject.statusMsg
+                        });
+                        resolve(res);
+                    } else {
+                        let res = con.query(queryString, {
+                            lastStartTime: InsertObject.lastStartTime,
+                            totalRunTime: InsertObject.totalRunTime,
+                            statusMsg: InsertObject.statusMsg
+                        });
+                        resolve(res);
+                    }
+                    //if the chiller is not running anymore shut it off
+                } else {
+                    let res = con.query(queryString, {
+                        running:InsertObject.running,
+                        totalRunTime: InsertObject.totalRunTime,
+                        statusMsg: InsertObject.statusMsg
+                    });
+                    resolve(res);
+                }
+
+            } catch (e) {
+                console.log(e);
+                reject(e)
+            }
+        })
+    },
+
+    // inserts new chiller into the database //table ref is the serial number
+    insertChillerData: async function (con, InsertObject) {
+        let queryString =
+            `INSERT INTO chillerData SET ?;`;
+        return new Promise(async (resolve, reject) => {
+            try {
+                let response = await con.query(
+                    queryString, {
+                        chillerID: InsertObject.chillerID,
+                        temp1: InsertObject.temp1,
+                        temp2: InsertObject.temp2,
+                        temp3: InsertObject.temp3,
+                        ambientTemp: InsertObject.ambientTemp,
+                        humidity: InsertObject.humidity,
+                        timestamp: InsertObject.timestamp
+                    });
+                if (response) {
+                    console.log(response[0].insertId);
+                    resolve({id: response[0].insertId, msg: "success"});
+                } else {
+                    reject("SQL ERROR 500 in Insert new Chiller");
+                }
+            } catch (e) {
                 reject(e);
             }
         })

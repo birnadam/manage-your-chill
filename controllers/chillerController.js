@@ -3,7 +3,7 @@ const logger        = require('../logs/Wlogger');
 
 module.exports = {
     //requires a "serial" string in the req.headers
-    addChiller: async (req,res) => {
+    addChiller: async (req,res) => {//
         try {
             let con = await sql.GetConnection();
             let user = await sql.selectWhere(con,"users","id",req.user[0].id);
@@ -13,7 +13,8 @@ module.exports = {
             const InsertObj = {
                 location:req.headers.location,
                 ownerID:req.user[0].id,
-                serial:req.headers.serial
+                serial:req.headers.serial,
+                setPoint:"-40"
             };
             let chiller = await sql.insertNewChiller(con,InsertObj);
             con.end();
@@ -44,7 +45,7 @@ module.exports = {
             let chiller = await sql.selectWhere(con,"chillers","ownerID",req.user[0].id);
             logger.log({
                 level:"info",
-                message:`got chiller list for id: ${req.header}`
+                message:`got chiller list for id: ${req.user[0].id}`
             })
             con.end();
             res.status(200).json(chiller);
@@ -59,12 +60,19 @@ module.exports = {
         try{
             let con = await sql.GetConnection();
             // console.log(Object.keys(req.headers));
-            let chillerID = parseInt(req.headers['chillerid']);
-            console.log(chillerID);
-            let response = await sql.selectChillerDataForIDInDesc(con, chillerID, "timestamp");
-            console.log(response);
+            let chillerID = JSON.parse(req.headers['chillerid']);
+            let chillerData = [];
+            for(let i =0;i<chillerID.length;i++){
+                console.log(chillerID[i]);
+                let response = await sql.selectChillerDataForIDInDesc(con, chillerID[i], "timestamp");
+                console.log(response[0][0]);
+
+
+                chillerData.push(response[0][0]);
+
+            }
             con.end();
-            res.status(200).json(response);
+            res.status(200).json(chillerData);
         }catch(e){
             console.log(e);
             logger.log({
@@ -73,6 +81,10 @@ module.exports = {
             });
             res.status(500).json(`error with database`)
         }
+    },
+
+    createStatusMessage: (chillerDataArray,) => {
+
     }
 
 

@@ -10,7 +10,7 @@ const Toolbar = props => (
       {/* dashboard, settings, sign in & sign up (or username & log out) */}
       <ul className="navbar-menu horizontal-list">
         <li className="mr-2">
-          <a href="#">Dashboard</a>
+          <a href="/dashboard">Dashboard</a>
         </li>
         <li className="mr-2">
           <a href="#">Settings</a>

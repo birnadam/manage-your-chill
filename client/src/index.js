@@ -17,6 +17,7 @@ import Wrapper from "./containers/Wrapper";
 import './style.css';
 
 // Import components
+import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 
 import reducers from "./reducers";
@@ -38,6 +39,7 @@ ReactDOM.render(
       <Wrapper>
         <App>
           <Route exact path="/" component={Welcome} />
+          <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/counter" component={Counter} />
           <Route exact path="/stuff" component={Stuff} />
           <Route exact path="/signup" component={Signup} />

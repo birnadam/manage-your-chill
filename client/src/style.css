@@ -9,6 +9,7 @@ body,
   margin: 0;
   height: 100%;
   -webkit-font-smoothing: antialiased;
+  font-family: roboto;
 }
 
 /*=============== START SignIn/SignUp Modals Styles ===============*/
@@ -17,7 +18,7 @@ body,
   color: #3e3e3b;
   overflow: hidden;
   border-radius: 15px;
-  max-width: 480px;
+  max-width: 460px;
   background-color: #29b6f6;
   color: white;
   box-shadow: 8px 8px 20px #4c586f;
@@ -26,23 +27,25 @@ body,
   margin-right: auto;
   margin-bottom: 30px;
   border: 1px solid #3e3e3b;
+  opacity: .85;
 }
 
 .modal-block:hover {
-  opacity: 0.9;
+  opacity: 1;
+  transition: all .5s ease-in-out;
 }
 
 .modal-block > .modal-block-content {
   background-color: inherit;
-  padding: 0px 80px;
+  padding: 0px 40px;
 }
 /*=============== END SignIn/SignUp Modals Styles ===============*/
 
 /*=============== START Button Toggles Styles ===============*/
 #stylingButton {
   position: relative;
-  top: -331px;
-  right: 300px;
+  top: -301px;
+  right: 350px;
   width: 500px;
   height: 46px;
 }
@@ -50,16 +53,16 @@ body,
 #signupButton,
 #signupButtonT {
   position: relative;
-  top: -402px;
-  right: 56px;
+  top: -347px;
+  right: -80px;
   width: 150px;
 }
 
 #loginButton,
 #loginButtonT {
   position: relative;
-  top: -402px;
-  right: -240px;
+  top: -347px;
+  right: -83px;
   width: 150px;
 }
 #stylingButton,
@@ -82,7 +85,7 @@ body,
 /*=============== START Form Styles ===============*/
 .form-horizontal {
   position: relative;
-  top: -70px;
+  top: -65px;
   margin-top: 0px;
 }
 
@@ -99,7 +102,9 @@ body,
 
 .form-horizontal > .form-group > .submit {
   position: relative;
-  top: 25px;
+  width: 200px;
+  top: 10px;
+  margin: auto;
 }
 p {
   font-size: 0.75em;
@@ -113,11 +118,10 @@ p {
 
 /*=============== START Button Styles ===============*/
 .btn {
-  font-weight: 700;
+  font-weight: 420;
   padding: 10px 24px;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-bottom: 25px;
 }
 
 .btn-radius {
@@ -146,9 +150,5 @@ a {
 a:hover {
   background-color: inherit;
   color: white;
-}
-
-.submit {
-  margin-top: 15px;
 }
 /*=============== END Button Styles ===============*/

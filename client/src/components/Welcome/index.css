@@ -6,7 +6,8 @@
   margin-top: 95px;
 }
 
-.header, .footer {
+.header,
+.footer {
   color: #add8e6;
   text-shadow: 2px 2px 2px #0277bd;
   text-align: center;
@@ -24,4 +25,5 @@
   display: block;
   width: 100%;
   margin: auto;
+  z-index: 3;
 }

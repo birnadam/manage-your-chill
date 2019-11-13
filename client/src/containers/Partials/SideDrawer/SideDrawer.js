@@ -1,34 +1,80 @@
-import React from "react";
+import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
 import "./SideDrawer.css";
 import NavLinks from "../../NavLinks";
-// import Userinfo from '../../Userinfo/Userinfo';
 
-const sideDrawer = props => {
-  let drawerClasses = "side-drawer";
-  if (props.show) {
-    drawerClasses = "side-drawer open";
+class SideDrawer extends Component {
+  state = {
+    userCheck: false
+  };
+
+  componentDidMount() {
+    console.log(this.state);
+    let userCheck = this.props.state.auth.authenticated;
+    if (userCheck !== "" && userCheck !== null) {
+      this.setState({
+        userCheck: true
+      });
+    } else {
+      this.setState({
+        userCheck: false
+      });
+    }
   }
-  // console.log(props.userData);
-  return (
-    <nav className={drawerClasses}>
-      <ul>
-        {/*<Userinfo userData={props.userData} />*/}
-        <li> USER NAME</li>
-        <li>
-          <a href="/">CHILLA</a>
-        </li>
-        <li>
-          <a href="/">CHILLA</a>
-        </li>
-        <li>
-          <a href="/">CHILLA</a>
-        </li>
-        <li>
-          <NavLinks />
-        </li>
-      </ul>
-    </nav>
-  );
-};
+  render() {
+    let drawerClasses = "side-drawer";
+    if (this.props.show) {
+      drawerClasses = "side-drawer open";
+    }
+    return (
+      <nav className={drawerClasses}>
+        {/* <ul>
+          <Userinfo userData={props.userData} />
+          <li> USER NAME</li>
+          <li>
+            <a href="/">CHILLA</a>
+          </li>
+          <li>
+            <a href="/">CHILLA</a>
+          </li>
+          <li>
+            <a href="/">CHILLA</a>
+          </li>
+          <li>
+            <NavLinks />
+          </li>
+        </ul> */}
+        {this.state.userCheck ? (
+          <ul>
+            <li>
+              <a href="/dashboard">Dashboard</a>
+            </li>
+            <li>
+              <a href="#">Settings</a>
+            </li>
+            <li>
+              <a href="/signout">Sign Out</a>
+            </li>
+            <li>
+              <NavLinks />
+            </li>
+          </ul>
+        ) : (
+          <ul>
+            <h5>
+              Please sign in to <br></br>
+              access your app
+            </h5>
+          </ul>
+        )}
+      </nav>
+    );
+  }
+}
 
-export default sideDrawer;
+function mapStateToProps(state) {
+  return { state };
+}
+
+export default compose(connect(mapStateToProps, {}))(SideDrawer);

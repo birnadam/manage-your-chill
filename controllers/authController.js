@@ -46,7 +46,7 @@ module.exports = {
       let InsertObj = {};
       InsertObj.email=email;
       InsertObj.fullName=fullName;
-      InsertObj.createdOn=moment().unix();
+      InsertObj.createdOn= moment().unix();
       const salt = await bcrypt.genSalt();
       console.log('salt', salt);
       const hash = await bcrypt.hash(password, salt);

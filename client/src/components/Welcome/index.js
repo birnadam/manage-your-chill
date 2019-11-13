@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 //component import
 import Auth from "../../containers/Authentication";
-import Dashboard from "../Dashboard";
 
 //import css
 import "./index.css";
@@ -15,23 +14,21 @@ class Welcome extends Component {
   };
 
   componentDidMount() {
+    this.checkIfAuth()
+  }
+
+  checkIfAuth(){
     console.log(this.state);
     let userCheck = this.props.state.auth.authenticated;
     if (userCheck !== "" && userCheck !== null) {
-      this.setState({
-        userCheck: true
-      });
-    } else {
-      this.setState({
-        userCheck: false
-      });
+      this.props.history.push('dashboard')
     }
   }
 
   render() {
     return (
       <div className="page">
-        {this.state.userCheck ? <Dashboard /> : <Auth />}
+         <Auth history={this.props.history}/>
       </div>
     );
   }

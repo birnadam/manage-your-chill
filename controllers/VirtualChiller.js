@@ -3,21 +3,21 @@ const fs    = require('fs');
 const moment = require("moment");
 
 class VirtualChiller{
-    constructor(){
+    constructor(chillerID){
         this.chillerStartingState = {
             temp1:-40,
             temp2:-85,
             temp3:-62,
-            tempA:72,
+            ambientTemp:72,
             humidity:13
         };
         this.currentState = {
             temp1:-40,
             temp2:-85,
             temp3:-62,
-            tempA:72,
+            ambientTemp:72,
             humidity:13,
-            time:0
+            timestamp:0
         };
         this.chillerHistory = [];
         this.state = {
@@ -25,42 +25,67 @@ class VirtualChiller{
             event:"none",
             startTimestamp:0,
             intervalID:{},
-            time:100
+            timestamp:100,
+            chillerID:chillerID
         };
         this.generateChillerDatapoint     = this.generateChillerDatapoint.bind(this);
         this.pushNewData                  = this.pushNewData.bind(this);
         this.upOrDown                     = this.upOrDown.bind(this);
     }
-    startChiller(){
+    async startChiller(numOfDatapoint=120){
         console.log("starting chiller");
-        this.state.startTimestamp = moment().unix();
-        this.currentState.time = this.state.startTimestamp;
-        for(let i = 120; i>0;i--){
-            this.pushNewData()
+        let con = await sql.GetConnection();
+        this.state.startTimestamp = moment().unix()-10800;
+        this.currentState.timestamp = this.state.startTimestamp;
+        for(let i = numOfDatapoint; i>0;i--){
+            // if(this.state.running){
+            //     i = 120;
+            // };
+            let data = this.pushNewData()
+            let res = await this.StoreDataInSQL(con, data); //can be used locally to save directly to a local DB
         }
+        con.end();
         // console.log(this.chillerHistory);
     };
 
-    pushNewData(){
+    //A simple way to manually store virtual chiller data into the backend. default password is password
+    // change it with the get connection function params
+    async StoreDataInSQL(con, data){
+        return new Promise(async (resolve,reject)=>{
+            try{
+                let res = await sql.insertChillerData(con, data);
+                if(res){
+                    resolve(res);
+                }
+            }catch(e){
+                console.log(e);
+                reject(e);
+            }
+        });
+    }
+
+    pushNewData(maxDataLength=120){
         let cstate = this.currentState;
         let newData = this.generateChillerDatapoint(cstate);
-        if(this.chillerHistory.length>120){
+        if(this.chillerHistory.length>maxDataLength){
             this.chillerHistory.shift();
         }
         this.chillerHistory.push(newData);
         this.currentState = newData;
-        console.log(newData);
+        // console.log(newData);
+        return newData;
     }
 
 
     generateChillerDatapoint(currentState) {
         let newState = {};
-        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,8) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
+        newState.chillerID=this.state.chillerID;
+        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,2) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
         newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,5) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
         newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,8) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
-        newState.tempA = this.upOrDown(this.chillerStartingState.tempA,currentState.tempA,20) ? (currentState.tempA+Math.random()):(currentState.tempA-Math.random());
+        newState.ambientTemp = this.upOrDown(this.chillerStartingState.ambientTemp,currentState.ambientTemp,20) ? (currentState.ambientTemp+Math.random()):(currentState.ambientTemp-Math.random());
         newState.humidity = this.upOrDown(this.chillerStartingState.humidity,currentState.humidity,2) ? (currentState.humidity+Math.random()):(currentState.humidity-Math.random());
-        newState.time = currentState.time+120;
+        newState.timestamp = currentState.timestamp+120;
         return newState;
     }
     //decided if the temp goes up or down based on the current temp and the starting temp and variability.
@@ -125,15 +150,18 @@ class VirtualChiller{
 
 }
 
-const VC = new VirtualChiller();
+module.exports = VirtualChiller;
+
+const VC = new VirtualChiller(1);
 let cState = VC.currentState;
-VC.startChiller();
+VC.startChiller(120);
 
-fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
-        if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
-        }
+// fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
+//         if (err) {
+//             console.log("An error occured while writing JSON Object to File.");
+//             return console.log(err);
+//         }
+//
+//         console.log("JSON file has been saved.");
+//     });
 
-        console.log("JSON file has been saved.");
-    });

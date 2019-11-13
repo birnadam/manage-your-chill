@@ -1,6 +1,28 @@
 const sql           = require("../controllers/mysql2ORMController");
 const logger        = require('../logs/Wlogger');
 
+createStatusMessage = (chillerDataArray, setpoint, allowedVariation) => {
+    let status = "";
+    let meanObject = {
+        temp1:0,
+        temp2:0,
+        temp3:0
+    };
+    for(let i = 0; i <chillerDataArray.length;i++){
+        meanObject.temp1 = meanObject.temp1+chillerDataArray[i].temp1;
+        meanObject.temp2 = meanObject.temp2+chillerDataArray[i].temp2
+        meanObject.temp3 = meanObject.temp3+chillerDataArray[i].temp3
+    }
+    meanObject.temp1 = meanObject.temp1/chillerDataArray.length;
+    meanObject.temp2 = meanObject.temp2/chillerDataArray.length;
+    meanObject.temp3 = meanObject.temp3/chillerDataArray.length;
+    if(meanObject.temp1>setpoint+allowedVariation || meanObject.temp1 < setpoint-allowedVariation){
+        return `mean temp ${meanObject.temp1} exceeded +- ${allowedVariation} `
+    }
+    return "Running Normally"
+
+};
+
 module.exports = {
     //requires a "serial" string in the req.headers
     addChiller: async (req,res) => {//
@@ -43,48 +65,30 @@ module.exports = {
                 res.status(404).json({ error: 'User not found' });
             }
             let chiller = await sql.selectWhere(con,"chillers","ownerID",req.user[0].id);
+            let chillerData = {
+                UserChillers:chiller,
+                ChillerDataByID:[]
+            };
+            for(let i =0; i<chiller.length ;i++){
+                console.log(chiller[i].id);
+                let response = await sql.selectChillerDataForIDInDesc(con, chiller[i].id, "timestamp");
+                console.log(response[0][0]);
+                chiller[i].statusMsg = createStatusMessage(response[0],chiller[i].setPoint, 5);
+
+                chillerData.ChillerDataByID.push(response[0][0]);
+
+            }
             logger.log({
                 level:"info",
                 message:`got chiller list for id: ${req.user[0].id}`
             })
             con.end();
-            res.status(200).json(chiller);
+            res.status(200).json(chillerData);
         } catch(e) {
             console.log("ERROR");
-            // console.log(e);
+            console.log(e);
             res.json(e);
         }
-    },
-
-    getCurrentTempAndStatus: async (req,res) => {
-        try{
-            let con = await sql.GetConnection();
-            // console.log(Object.keys(req.headers));
-            let chillerID = JSON.parse(req.headers['chillerid']);
-            let chillerData = [];
-            for(let i =0;i<chillerID.length;i++){
-                console.log(chillerID[i]);
-                let response = await sql.selectChillerDataForIDInDesc(con, chillerID[i], "timestamp");
-                console.log(response[0][0]);
-
-
-                chillerData.push(response[0][0]);
-
-            }
-            con.end();
-            res.status(200).json(chillerData);
-        }catch(e){
-            console.log(e);
-            logger.log({
-                level:"error",
-                message:e
-            });
-            res.status(500).json(`error with database`)
-        }
-    },
-
-    createStatusMessage: (chillerDataArray,) => {
-
     }
 
 

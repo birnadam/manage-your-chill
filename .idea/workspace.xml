@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chillerdatatest.json" beforeDir="false" afterPath="$PROJECT_DIR$/chillerdatatest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/VirtualChiller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/VirtualChiller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/chillerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chillerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/mysql2ORMController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mysql2ORMController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/schema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
@@ -113,7 +108,7 @@
       <workItem from="1573461199592" duration="9869000" />
       <workItem from="1573506656491" duration="3405000" />
       <workItem from="1573584662884" duration="12000" />
-      <workItem from="1573591150223" duration="5378000" />
+      <workItem from="1573591150223" duration="7950000" />
     </task>
     <servers />
   </component>

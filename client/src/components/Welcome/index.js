@@ -34,9 +34,6 @@ class Welcome extends Component {
     return (
       <div className="page">
         <Auth />
-        <div className="header">
-          <h1>Manage Your Chill</h1>
-        </div>
       </div>
     );
   }

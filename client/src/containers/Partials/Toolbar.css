@@ -5,6 +5,8 @@
   width: 100%;
   background: #0277bd;
   height: 56px;
+  z-index: 1;
+  font-weight: 420;
 }
 
 .toolbar_navigation {
@@ -45,5 +47,6 @@
 
 .navbar-menu li a:hover {
   color: #ebeced;
-  text-shadow: 2px 2px 2px #add8e6;
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px #add8e6;
 }

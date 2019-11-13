@@ -4,6 +4,8 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { signup } from "../../actions";
 import validator from "validator";
+import history from "../../history";
+import InputField from "../InputField";
 
 class Signup extends Component {
   constructor(props) {
@@ -35,7 +37,7 @@ class Signup extends Component {
   onSubmit = formProps => {
     console.log(formProps);
     this.props.signup(formProps, () => {
-      this.props.success();
+      history.push("/dashboard");
     });
   };
 
@@ -54,7 +56,7 @@ class Signup extends Component {
               type="text"
               id="email"
               className="email form-control"
-              component={this.renderInput}
+              component={InputField}
               autoComplete="none"
             />
           </fieldset>
@@ -70,7 +72,7 @@ class Signup extends Component {
               type="text"
               id="username"
               className="inputBox form-control"
-              component={this.renderInput}
+              component={InputField}
               autoComplete="none"
             />
           </fieldset>
@@ -85,7 +87,7 @@ class Signup extends Component {
               type="password"
               id="password"
               className="form-control"
-              component={this.renderInput}
+              component={InputField}
               autoComplete="none"
             />
           </fieldset>
@@ -129,10 +131,7 @@ const validate = formValues => {
 };
 
 export default compose(
-  connect(
-    mapStateToProps,
-    { signup }
-  ),
+  connect(mapStateToProps, { signup }),
   reduxForm({
     form: "signup",
     validate

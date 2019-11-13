@@ -3,16 +3,19 @@ import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { signin } from "../../actions";
+import history from "../../history";
+import InputField from "../InputField";
 
 class Signin extends Component {
-  onSubmit = formValues => {
-    this.props.signin(formValues, () => {
-      this.props.success();
-    });
-  };
-
   renderInput = ({ input }) => {
     return <input {...input} />;
+  };
+
+  onSubmit = formProps => {
+    console.log(formProps);
+    this.props.signin(formProps, () => {
+      history.push("/dashboard");
+    });
   };
 
   render() {
@@ -30,7 +33,7 @@ class Signin extends Component {
               type="text"
               id="email"
               className="email form-control"
-              component={this.renderInput}
+              component={InputField}
               autoComplete="none"
             />
           </fieldset>
@@ -45,7 +48,7 @@ class Signin extends Component {
               type="password"
               id="password"
               className="form-control"
-              component={this.renderInput}
+              component={InputField}
               autoComplete="none"
             />
           </fieldset>
@@ -69,9 +72,6 @@ function mapStateToProps(state) {
 }
 
 export default compose(
-  connect(
-    mapStateToProps,
-    { signin }
-  ),
+  connect(mapStateToProps, { signin }),
   reduxForm({ form: "signin" })
 )(Signin);

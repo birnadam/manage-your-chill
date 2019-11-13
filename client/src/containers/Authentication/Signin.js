@@ -3,7 +3,6 @@ import { reduxForm, Field } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { signin } from "../../actions";
-import history from "../../history";
 import InputField from "../InputField";
 
 class Signin extends Component {
@@ -14,7 +13,7 @@ class Signin extends Component {
   onSubmit = formProps => {
     console.log(formProps);
     this.props.signin(formProps, () => {
-      history.push("/dashboard");
+      this.props.history.push('/dashboard');
     });
   };
 
@@ -24,7 +23,7 @@ class Signin extends Component {
     return (
       <form className="form-horizontal" onSubmit={handleSubmit(this.onSubmit)}>
         <div className="form-group">
-          <label for="email" id="labelColor">
+          <label type="email" id="labelColor">
             Email
           </label>
           <fieldset>
@@ -39,7 +38,7 @@ class Signin extends Component {
           </fieldset>
         </div>
         <div className="form-group">
-          <label for="password" id="labelColor">
+          <label type="password" id="labelColor">
             Password
           </label>
           <fieldset>

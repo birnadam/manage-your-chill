@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { signout } from "../../actions";
 import { connect } from "react-redux";
-import history from "../../history";
 
 class Signout extends Component {
   componentDidMount() {
     this.props.signout();
-    history.push("/");
   }
 
   render() {
@@ -14,4 +12,8 @@ class Signout extends Component {
   }
 }
 
-export default connect(null, { signout })(Signout);
+function mapStateToProps(state) {
+  return { state };
+}
+
+export default connect(mapStateToProps, { signout })(Signout);

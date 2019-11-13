@@ -52,7 +52,7 @@ class Auth extends Component {
             SIGNUP
           </button>
 
-          {this.state.btn ? <Signin /> : <Signup />}
+          {this.state.btn ? <Signin history={this.props.history}/> : <Signup history={this.props.history} />}
         </div>
       </div>
     );

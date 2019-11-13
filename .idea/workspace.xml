@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/chillerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chillerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,7 +106,7 @@
       <workItem from="1573461199592" duration="9869000" />
       <workItem from="1573506656491" duration="3405000" />
       <workItem from="1573584662884" duration="12000" />
-      <workItem from="1573591150223" duration="7950000" />
+      <workItem from="1573591150223" duration="8085000" />
     </task>
     <servers />
   </component>

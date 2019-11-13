@@ -1,6 +1,8 @@
 const sql           = require("../controllers/mysql2ORMController");
 const logger        = require('../logs/Wlogger');
 
+// todo create more status messages
+// todo create chiller is off status message
 createStatusMessage = (chillerDataArray, setpoint, allowedVariation) => {
     let status = "";
     let meanObject = {
@@ -56,7 +58,7 @@ module.exports = {
             res.json(e);
         }
     },
-
+// todo add error handling for if users chiller doesnt have data
     getChillersForUser: async (req,res) => {
         try {
             let con = await sql.GetConnection();

@@ -37,7 +37,6 @@ class VirtualChiller{
         let con = await sql.GetConnection();
         this.state.startTimestamp = moment().unix()-10800;
         this.currentState.timestamp = this.state.startTimestamp;
-        sql.updateChiller(con);
         for(let i = numOfDatapoint; i>0;i--){
             // if(this.state.running){
             //     i = 120;
@@ -81,7 +80,7 @@ class VirtualChiller{
     generateChillerDatapoint(currentState) {
         let newState = {};
         newState.chillerID=this.state.chillerID;
-        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,8) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
+        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,2) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
         newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,5) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
         newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,8) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
         newState.ambientTemp = this.upOrDown(this.chillerStartingState.ambientTemp,currentState.ambientTemp,20) ? (currentState.ambientTemp+Math.random()):(currentState.ambientTemp-Math.random());
@@ -155,7 +154,7 @@ module.exports = VirtualChiller;
 
 const VC = new VirtualChiller(1);
 let cState = VC.currentState;
-VC.startChiller(800);
+VC.startChiller(120);
 
 // fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
 //         if (err) {

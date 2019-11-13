@@ -35,6 +35,7 @@ DROP TABLE IF EXISTS chillers;
 
 CREATE TABLE chillers(
 	id			    INTEGER auto_increment,
+    chillerName		VARCHAR(128) NOT NULL,
     location   	    VARCHAR(256) NOT NULL,
     ownerID		    INTEGER NOT NULL,
     accountId	    Integer,

@@ -178,6 +178,7 @@ module.exports = {
             try {
                 let response = await con.query(
                     queryString, {
+                        chillerName:InsertObject.chillerName,
                         location: InsertObject.location,
                         ownerID: InsertObject.ownerID,
                         serial: InsertObject.serial,
@@ -187,13 +188,15 @@ module.exports = {
                     console.log(response[0].insertId);
                     resolve({id: response[0].insertId, msg: "success"});
                 } else {
-                    reject("SQL ERROR 500 in Insert new Chiller");
+                    reject("SQL ERROR 500 no response in Insert new Chiller");
                 }
             } catch (e) {
                 reject(e);
             }
         })
     },
+
+
     // used to update chillers with their start and stop times.
     updateChillerTime: async function (con, InsertObject, chillerID) {
         let queryString = `UPDATE chillers
@@ -205,7 +208,7 @@ module.exports = {
                     //if there is no firstStartTime Start Chiller for first time
                     if (InsertObject.firstStartTime != undefined) {
                         let res = con.query(queryString, {
-                            firstStartTimeL: InsertObject.firstStartTime,
+                            firstStartTime: InsertObject.firstStartTime,
                             lastStartTime: InsertObject.lastStartTime,
                             totalRunTime: InsertObject.totalRunTime,
                             statusMsg: InsertObject.statusMsg

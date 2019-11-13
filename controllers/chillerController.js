@@ -35,6 +35,7 @@ module.exports = {
                 res.status(404).json({ error: 'User not found' });
             }
             const InsertObj = {
+                chillerName:req.headers.chillername,
                 location:req.headers.location,
                 ownerID:req.user[0].id,
                 serial:req.headers.serial,
@@ -89,7 +90,22 @@ module.exports = {
         } catch(e) {
             console.log("ERROR");
             console.log(e);
-            res.json(e);
+            res.status(500).json(e);
+        }
+    },
+
+    getChillerDataForID: async (req,res) => {
+        try {
+            let con = await sql.GetConnection();
+            let user = await sql.selectWhere(con, "users", "id", req.user[0].id);
+            if (user.length == 0) {
+                res.status(404).json({error: 'User token not found'});
+            }
+            let chillerdata = await sql.selectChillerDataForIDInDesc(con, req.headers.chillerid,'timestamp')
+            res.status(200).json(chillerdata[0]);
+        }catch(e){
+            console.log(e);
+            res.status(500).json(e);
         }
     }
 

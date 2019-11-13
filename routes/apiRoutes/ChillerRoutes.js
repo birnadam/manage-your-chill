@@ -13,8 +13,8 @@ router.route('/')//uses Passport JWT as its auth method.
 router.route('/getchillers')//uses Passport JWT as its auth method.
     .post(authMiddleware.requireAuth, chillController.getChillersForUser);
 
-// router.route('/recent')
-//     .post(authMiddleware.requireAuth, chillController.getCurrentTempAndStatus);
+router.route('/recent')
+    .post(authMiddleware.requireAuth, chillController.getChillerDataForID);
 
 
 

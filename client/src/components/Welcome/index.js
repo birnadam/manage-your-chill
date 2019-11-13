@@ -1,42 +1,44 @@
 import React, { Component } from "react";
+import { compose } from "redux";
+import { connect } from "react-redux";
+
 //component import
 import Auth from "../../containers/Authentication";
-// import Signin from "../../containers/Authentication/Signin";
-// import Signup from "../../containers/Authentication/Signup";
+import Dashboard from "../Dashboard";
 
 //import css
 import "./index.css";
 
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      signIn: true
-    };
+  state = {
+    userCheck: false
+  };
 
-    this.switchToSignup = this.switchToSignup.bind(this);
-    this.postLogin = this.postLogin.bind(this);
-  }
-
-  switchToSignup() {
-    if (this.state.signIn) {
-      this.setState({ signIn: false });
+  componentDidMount() {
+    console.log(this.state);
+    let userCheck = this.props.state.auth.authenticated;
+    if (userCheck !== "" && userCheck !== null) {
+      this.setState({
+        userCheck: true
+      });
     } else {
-      this.setState({ signIn: true });
+      this.setState({
+        userCheck: false
+      });
     }
-  }
-
-  postLogin() {
-    this.props.history.push("/counter");
   }
 
   render() {
     return (
       <div className="page">
-        <Auth />
+        {this.state.userCheck ? <Dashboard /> : <Auth />}
       </div>
     );
   }
 }
 
-export default Welcome;
+function mapStateToProps(state) {
+  return { state };
+}
+
+export default compose(connect(mapStateToProps, {}))(Welcome);

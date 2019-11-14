@@ -106,6 +106,13 @@ body,
   top: 10px;
   margin: auto;
 }
+
+.input > input {
+  margin: auto;
+  text-align: center;
+  width: 85%;
+}
+
 p {
   font-size: 0.75em;
   color: #687a92;

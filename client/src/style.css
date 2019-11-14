@@ -80,6 +80,10 @@ body,
   background-color: inherit;
   color: white;
 }
+
+.opacity {
+  opacity: 0.3;
+}
 /*=============== END Button Toggles Styles ===============*/
 
 /*=============== START Form Styles ===============*/

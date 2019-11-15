@@ -10,6 +10,7 @@ import {
   Tabs,
   Tab
 } from "@material-ui/core";
+import requireAuth from "../../hoc/requireAuth";
 
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -82,7 +83,7 @@ function colorBackground(status) {
   }
 }
 
-export default function Dashboard() {
+export default requireAuth(function  Dashboard() {
   const classes = useStyles();
   return (
     <div className="page">
@@ -117,4 +118,4 @@ export default function Dashboard() {
       </Paper>
     </div>
   );
-}
+})

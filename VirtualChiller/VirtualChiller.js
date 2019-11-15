@@ -81,8 +81,8 @@ class VirtualChiller{
         let newState = {};
         newState.chillerID=this.state.chillerID;
         newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,2) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
-        newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,5) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
-        newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,8) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
+        newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,2) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
+        newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,2) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
         newState.ambientTemp = this.upOrDown(this.chillerStartingState.ambientTemp,currentState.ambientTemp,20) ? (currentState.ambientTemp+Math.random()):(currentState.ambientTemp-Math.random());
         newState.humidity = this.upOrDown(this.chillerStartingState.humidity,currentState.humidity,2) ? (currentState.humidity+Math.random()):(currentState.humidity-Math.random());
         newState.timestamp = currentState.timestamp+120;
@@ -154,7 +154,7 @@ module.exports = VirtualChiller;
 
 const VC = new VirtualChiller(1);
 let cState = VC.currentState;
-VC.startChiller(120);
+VC.startChiller(800);
 
 // fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
 //         if (err) {

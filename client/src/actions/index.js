@@ -5,7 +5,7 @@ import {
   AUTH_ERROR,
   ADD_TODO,
   TODO_ERROR,
-  FETCH_TODOS
+  FETCH_TODOS, FETCH_CHILLERS, ADD_CHILLER, CHILLER_ERROR
 } from "./types";
 import axios from "axios";
 
@@ -53,22 +53,25 @@ export const signout = () => {
   };
 };
 
-export const fetchTodos = () => async dispatch => {
+export const fetchUserChillersAndStatus = () => async dispatch => {
   try {
-    const response = await axios.get("/api/todo", {
+    const response = await axios.post("http://localhost:3001/api/c/getchillers",{}, {
       headers: { authorization: localStorage.getItem("token") }
     });
 
-    dispatch({ type: FETCH_TODOS, payload: response.data.todos });
+    dispatch({ type: FETCH_CHILLERS, payload: response.data });
   } catch (e) {
-    dispatch({ type: TODO_ERROR, payload: "Something bad happened" });
+    dispatch({ type: CHILLER_ERROR, payload: "Something bad happened" });
   }
 };
 
-export const addTodo = formValue => async dispatch => {
+export const addChiller = formValue => async dispatch => {
   try {
-    await axios.post("/api/todo", formValue, {
-      headers: { authorization: localStorage.getItem("token") }
+    await axios.post("/api/todo", {}, {
+      headers: {
+        authorization: localStorage.getItem("token"),
+        serial:formValue
+      }
     });
 
     const todos = await axios.get("/api/todo", {
@@ -77,8 +80,8 @@ export const addTodo = formValue => async dispatch => {
 
     console.log("Testing");
 
-    dispatch({ type: ADD_TODO, payload: todos.data.todos });
+    dispatch({ type: ADD_CHILLER, payload: todos.data.todos });
   } catch (e) {
-    dispatch({ type: TODO_ERROR, payload: "Something went wrong" });
+    dispatch({ type: CHILLER_ERROR, payload: "Something went wrong" });
   }
 };

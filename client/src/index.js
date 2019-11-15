@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
-import history from './history';
+// import history from './history';
 
 // Import Containers
 import App from "./containers/App";
@@ -13,8 +13,8 @@ import Stuff from "./containers/Stuff";
 import Signup from "./containers/Authentication/Signup";
 import Signin from "./containers/Authentication/Signin";
 import Signout from "./containers/Authentication/Signout";
-import Todo from "./containers/Todo";
 import Wrapper from "./containers/Wrapper";
+import TempChart from "./containers/TempChart/TempChart";
 import './style.css';
 
 // Import components
@@ -36,7 +36,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <Wrapper>
         <App>
           <Route exact path="/" component={Welcome} />
@@ -46,7 +46,7 @@ ReactDOM.render(
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/signout" component={Signout} />
-          <Route exact path="/todo" component={Todo} />
+          <Route exact path="/chart" component={TempChart} />
         </App>
       </Wrapper>
     </Router>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { addTodo, fetchTodos } from "../actions";
+import { addChiller, fetchUserChillersAndStatus } from "../actions";
 
 
 
@@ -56,7 +56,7 @@ function mapStateToProps({ todo }) {
 }
 
 const formedComponent = compose(
-  connect(mapStateToProps, { addTodo, fetchTodos }),
+  connect(mapStateToProps, { addTodo: addChiller, fetchTodos: fetchUserChillersAndStatus }),
   reduxForm({ form: 'Add todo'})
 )(Todo);
 

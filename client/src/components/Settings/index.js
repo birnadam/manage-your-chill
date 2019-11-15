@@ -29,7 +29,7 @@ class Settings extends Component {
   render() {
     return (
       <div className="page">
-        <div className="modal-block">
+        <div className="modal-block col-sm-12 col-md-8 col-lg-6 col-xl-4">
           <img
             className="imgSize opacity"
             src={
@@ -38,10 +38,10 @@ class Settings extends Component {
             alt={"Perma.Cool logo"}
           />
           <div className="modal-block-content">
-            <button
+            {/* <button
               id="stylingButton"
               className="btn btn-primary text-right"
-            ></button>
+            ></button> */}
             {/* this one is not rly a button ^ it's to fill empty space*/}
             <button
               id="loginButton"

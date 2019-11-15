@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import "./SideDrawer.css";
-import NavLinks from "../../NavLinks";
 
 class SideDrawer extends Component {
   state = {
@@ -51,14 +50,14 @@ class SideDrawer extends Component {
               <a href="/dashboard">Dashboard</a>
             </li>
             <li>
-              <a href="#">Settings</a>
+              <a href="/settings">Settings</a>
             </li>
             <li>
               <a href="/signout">Sign Out</a>
             </li>
-            <li>
+            {/* <li>
               <NavLinks />
-            </li>
+            </li> */}
           </ul>
         ) : (
           <ul>

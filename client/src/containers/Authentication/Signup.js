@@ -37,7 +37,7 @@ class Signup extends Component {
   onSubmit = formProps => {
     console.log(formProps);
     this.props.signup(formProps, () => {
-      this.props.history.push('/dashboard');
+      this.props.history.push("/dashboard");
     });
   };
 
@@ -97,7 +97,7 @@ class Signup extends Component {
             type="submit"
             className="btn btn-block btn-radius btn-primary submit"
           >
-            Sign Up
+            SIGN UP
           </button>
         </div>
       </form>

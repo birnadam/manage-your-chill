@@ -13,7 +13,7 @@ class Signin extends Component {
   onSubmit = formProps => {
     console.log(formProps);
     this.props.signin(formProps, () => {
-      this.props.history.push('/dashboard');
+      this.props.history.push("/dashboard");
     });
   };
 

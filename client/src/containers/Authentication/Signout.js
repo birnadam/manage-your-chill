@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 class Signout extends Component {
   componentDidMount() {
     this.props.signout();
+    this.props.history.push("/");
   }
 
   render() {

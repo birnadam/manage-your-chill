@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { addTodo, fetchTodos } from "../actions";
+import { addChiller, fetchUserChillersAndStatus } from "../actions";
 
 
 
@@ -12,6 +12,7 @@ class Todo extends Component {
 
   componentDidMount() {
     this.props.fetchTodos();
+
   }
 
   onSubmit = formValues => {
@@ -43,7 +44,7 @@ class Todo extends Component {
             component='input'
             autoComplete='none'
           />
-          <button>Add todo</button>
+          <button >Add todo</button>
         </form>
         {this.renderTodos()}
       </div>
@@ -56,7 +57,7 @@ function mapStateToProps({ todo }) {
 }
 
 const formedComponent = compose(
-  connect(mapStateToProps, { addTodo, fetchTodos }),
+  connect(mapStateToProps, { addTodo: addChiller, fetchTodos: fetchUserChillersAndStatus }),
   reduxForm({ form: 'Add todo'})
 )(Todo);
 

@@ -7,10 +7,10 @@ TODO
 
 #backend
 
-* refactor the code so that mysql is used instead of mongodb. semi completion.
+* ~~refactor the code so that mysql is used instead of mongodb. semi completion.~~
 * create a post route to input 30-60 minutes of data at a time. 
-* create a post route to serve a specific range of data for the graph of the past temprature readings.
-* create a get route to get status with current temperature.
+* ~~create a post route to serve a specific range of data for the graph of the past temprature readings.~~
+* ~~create a get route to get status with current temperature.~~
 * create a post route to set over temp alarm.
 * create post route to  set under temp alarm.
 * create post route to change UserSettings. 
@@ -46,12 +46,14 @@ TODO
 * build [dashboard] pg which understands if more than one chiller.
   (either it shows the multi chiller component or the single chiller component without changing pages.)
 
+
 * build the [multiChiller] dashboard component.
     - include wrapper, nav, sidebar, and status
     - information to be included: 
         - name of chiller
         - temperature of chiller
         - status of chiller (with colors: red, yellow, green)
+        
 
 * build the [singleChiller] component 
     - include wrapper, nav, and sidebar 

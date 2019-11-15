@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
-import history from "./history";
+
 
 // Import Containers
 import App from "./containers/App";
@@ -13,13 +13,17 @@ import Stuff from "./containers/Stuff";
 // import Signup from "./containers/Authentication/Signup";
 // import Signin from "./containers/Authentication/Signin";
 import Signout from "./containers/Authentication/Signout";
-import Todo from "./containers/Todo";
+import Dashboard1 from './containers/Dashboard1.1/Dashboard1.1';
+
 import Wrapper from "./containers/Wrapper";
-import "./style.css";
+
+import TempChart from "./containers/TempChart/TempChart";
+import './style.css';
+
 
 // Import components
 import Settings from "./components/Settings";
-import Dashboard from "./components/Dashboard";
+// import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 
 import reducers from "./reducers";
@@ -37,18 +41,18 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <Router>
       <Wrapper>
         <App>
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard" component={Dashboard1} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/counter" component={Counter} />
           <Route exact path="/stuff" component={Stuff} />
           {/* <Route exact path="/signup" component={Signup} />
           <Route exact path="/signin" component={Signin} /> */}
           <Route exact path="/signout" component={Signout} />
-          <Route exact path="/todo" component={Todo} />
+          <Route exact path="/chart" component={TempChart} />
         </App>
       </Wrapper>
     </Router>

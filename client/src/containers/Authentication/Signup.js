@@ -4,6 +4,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { signup } from "../../actions";
 import validator from "validator";
+
 import InputField from "../InputField";
 
 class Signup extends Component {

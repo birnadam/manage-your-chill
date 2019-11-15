@@ -80,11 +80,11 @@ class VirtualChiller{
     generateChillerDatapoint(currentState) {
         let newState = {};
         newState.chillerID=this.state.chillerID;
-        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,2) ? (currentState.temp1+Math.random()):(currentState.temp1-Math.random());
-        newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,2) ? (currentState.temp2+Math.random()):(currentState.temp2-Math.random());
-        newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,2) ? (currentState.temp3+Math.random()):(currentState.temp3-Math.random());
-        newState.ambientTemp = this.upOrDown(this.chillerStartingState.ambientTemp,currentState.ambientTemp,20) ? (currentState.ambientTemp+Math.random()):(currentState.ambientTemp-Math.random());
-        newState.humidity = this.upOrDown(this.chillerStartingState.humidity,currentState.humidity,2) ? (currentState.humidity+Math.random()):(currentState.humidity-Math.random());
+        newState.temp1 = this.upOrDown(this.chillerStartingState.temp1,currentState.temp1,2) ? (currentState.temp1+Math.random()*0.3):(currentState.temp1-Math.random()*0.3);
+        newState.temp2 = this.upOrDown(this.chillerStartingState.temp2,currentState.temp2,2) ? (currentState.temp2+Math.random()*0.3):(currentState.temp2-Math.random()*0.3);
+        newState.temp3 = this.upOrDown(this.chillerStartingState.temp3,currentState.temp3,2) ? (currentState.temp3+Math.random()*0.3):(currentState.temp3-Math.random()*0.3);
+        newState.ambientTemp = this.upOrDown(this.chillerStartingState.ambientTemp,currentState.ambientTemp,20) ? (currentState.ambientTemp+Math.random()*0.3):(currentState.ambientTemp-Math.random()*0.3);
+        newState.humidity = this.upOrDown(this.chillerStartingState.humidity,currentState.humidity,2) ? (currentState.humidity+Math.random()*0.3):(currentState.humidity-Math.random()*0.3);
         newState.timestamp = currentState.timestamp+120;
         return newState;
     }
@@ -152,9 +152,15 @@ class VirtualChiller{
 
 module.exports = VirtualChiller;
 
-const VC = new VirtualChiller(1);
-let cState = VC.currentState;
-VC.startChiller(800);
+const VC1 = new VirtualChiller(1);
+const VC2 = new VirtualChiller(2);
+const VC3 = new VirtualChiller(3);
+const VC4 = new VirtualChiller(4);
+
+VC1.startChiller(400);
+VC2.startChiller(400);
+VC3.startChiller(400);
+VC4.startChiller(400);
 
 // fs.writeFile("chillerdatatest.json", JSON.stringify(VC.chillerHistory), 'utf8', function (err) {
 //         if (err) {

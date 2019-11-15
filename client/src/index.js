@@ -13,6 +13,8 @@ import Stuff from "./containers/Stuff";
 // import Signup from "./containers/Authentication/Signup";
 // import Signin from "./containers/Authentication/Signin";
 import Signout from "./containers/Authentication/Signout";
+import Dashboard1 from './containers/Dashboard1.1/Dashboard1.1';
+
 import Wrapper from "./containers/Wrapper";
 
 import TempChart from "./containers/TempChart/TempChart";
@@ -21,7 +23,7 @@ import './style.css';
 
 // Import components
 import Settings from "./components/Settings";
-import Dashboard from "./components/Dashboard";
+// import Dashboard from "./components/Dashboard";
 import Welcome from "./components/Welcome";
 
 import reducers from "./reducers";
@@ -43,7 +45,7 @@ ReactDOM.render(
       <Wrapper>
         <App>
           <Route exact path="/" component={Welcome} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard" component={Dashboard1} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/counter" component={Counter} />
           <Route exact path="/stuff" component={Stuff} />

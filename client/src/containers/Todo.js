@@ -12,6 +12,7 @@ class Todo extends Component {
 
   componentDidMount() {
     this.props.fetchTodos();
+
   }
 
   onSubmit = formValues => {
@@ -43,7 +44,7 @@ class Todo extends Component {
             component='input'
             autoComplete='none'
           />
-          <button>Add todo</button>
+          <button >Add todo</button>
         </form>
         {this.renderTodos()}
       </div>

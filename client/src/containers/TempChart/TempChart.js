@@ -6,14 +6,17 @@ import axios from "axios";
 import {connect} from "react-redux";
 import moment from "moment";
 
-
+//styles
+import {
+    TableCell
+} from "@material-ui/core";
 
 
 class TempChart extends Component {
     constructor(props){
         super(props);
         this.state = {
-            chillerID:1,
+            chillerID:props.chillerID,
             data:[
                 { x:1300, y:-40},
                 { x:1330, y:-40},
@@ -24,6 +27,7 @@ class TempChart extends Component {
                 { x:1600, y:-40},
             ]
         };
+        console.log(props.chillerID);
     }
 //,
 //                     chillerid:this.state.chillerID
@@ -64,7 +68,7 @@ class TempChart extends Component {
 
 
     render() {
-        return (<div>
+        return (<TableCell>
                 <VictoryChart>
                     <VictoryLine
                         data={this.state.data}
@@ -75,7 +79,7 @@ class TempChart extends Component {
                         }}
                     />
                 </VictoryChart>
-        </div>
+        </TableCell>
         );
     }
 }

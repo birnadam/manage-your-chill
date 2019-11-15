@@ -2,32 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Dashboard/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/reducers/chilers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Dashboard/AddChiller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Settings/ChillerSettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Settings/UserSettings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Settings/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Project-Whitepaper.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/client/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Dashboard/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Dashboard/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Todo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/history.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/InputField/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/InputField/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/DrawerToggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/DrawerToggleButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/DrawerToggleButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/DrawerToggleButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/SideDrawer/SideDrawer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/Toolbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/Toolbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Partials/Toolbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Partials/Toolbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/VirtualChiller.js" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChiller/VirtualChiller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/chillerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chillerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/todoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/todoController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Todo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/User.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/apiRoutes/todoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/todoRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/passport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -136,7 +131,7 @@
       <workItem from="1573584662884" duration="12000" />
       <workItem from="1573591150223" duration="23514000" />
       <workItem from="1573677736225" duration="19000" />
-      <workItem from="1573768465087" duration="14875000" />
+      <workItem from="1573768465087" duration="15248000" />
     </task>
     <servers />
   </component>

@@ -27,12 +27,12 @@ body,
   margin-right: auto;
   margin-bottom: 30px;
   border: 1px solid #3e3e3b;
-  opacity: .85;
+  opacity: 0.85;
 }
 
 .modal-block:hover {
   opacity: 1;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .modal-block > .modal-block-content {
@@ -80,6 +80,10 @@ body,
   background-color: inherit;
   color: white;
 }
+
+.opacity {
+  opacity: 0.3;
+}
 /*=============== END Button Toggles Styles ===============*/
 
 /*=============== START Form Styles ===============*/
@@ -106,6 +110,13 @@ body,
   top: 10px;
   margin: auto;
 }
+
+.input > input {
+  margin: auto;
+  text-align: center;
+  width: 85%;
+}
+
 p {
   font-size: 0.75em;
   color: #687a92;

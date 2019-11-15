@@ -11,6 +11,8 @@ import {
   Tab
 } from "@material-ui/core";
 
+import AddChiller from "./AddChiller";
+
 const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: "#4c586f",
@@ -93,7 +95,9 @@ export default function Dashboard() {
           </caption>
           <TableHead>
             <TableRow>
-              <StyledTableCell></StyledTableCell>
+              <StyledTableCell>
+                <AddChiller />
+              </StyledTableCell>
               <StyledTableCell align="center">TEMPERATURE</StyledTableCell>
               <StyledTableCell align="center">STATUS</StyledTableCell>
             </TableRow>

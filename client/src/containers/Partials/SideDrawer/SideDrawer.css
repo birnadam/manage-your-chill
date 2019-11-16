@@ -1,6 +1,6 @@
 .side-drawer {
   height: 100%;
-  background-color: #29b6f6;
+  background-color: #ebeced;
   position: fixed;
   top: 55px;
   left: 0;
@@ -15,7 +15,7 @@
 
 .side-drawer.open {
   transform: translateX(0);
-  box-shadow: 8px 8px 20px #3e3e3b;
+  box-shadow: 8px 8px 20px #4c586f;
 }
 
 .side-drawer ul {
@@ -31,17 +31,17 @@
 }
 
 .side-drawer a {
-  color: #ebeced;
+  color: #4c586f;
   text-decoration: none;
   font-size: 1.2rem;
 }
 
 .side-drawer a:hover,
 .side-drawer a:active {
-  color: #3e3e3b;
+  color: #4c586f;
   text-decoration: underline;
 }
 
 h5 {
-  color: #ebeced;
+  color: #4c586f;
 }

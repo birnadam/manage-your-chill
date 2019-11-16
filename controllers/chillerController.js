@@ -94,6 +94,7 @@ module.exports = {
         }
     },
 
+    // return data for a chiller ID all of it in decs order
     getChillerDataForID: async (req,res) => {
         try {
             let con = await sql.GetConnection();
@@ -107,7 +108,24 @@ module.exports = {
             console.log(e);
             res.status(500).json(e);
         }
+    },
+
+    startChiller: async (req,res) => {
+
+    },
+
+    stopChiller: async (req,res) => {
+
+    },
+
+    setOverTemp: async (req,res) => {
+
+    },
+
+    setUnderTemp: async (req,res) => {
+
     }
+
 
 
 

@@ -3,18 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2c23518c-2dbc-4431-bfee-b0bdca954321" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/BackendRoutes.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/BackendRoutes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Welcome/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Welcome/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signin.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/Signup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/containers/Authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Authentication/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/VirtualChiller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/VirtualChiller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/authController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/authController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/chillerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/chillerController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/mysql2ORMController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/mysql2ORMController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/models/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/apiRoutes/ChillerRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VirtualChiller/VirtualChiller.js" beforeDir="false" afterPath="$PROJECT_DIR$/VirtualChiller/VirtualChiller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Dashboard1.1/Dashboard1.1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/TempChart/TempChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/containers/Todo.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/containers/Todo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -33,12 +28,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/client/package.json" />
+    <dismissed value="$PROJECT_DIR$/package.json" />
+  </component>
   <component name="ProjectId" id="1T2ICPw3mVyihA2QGvqRSd7pLdE" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../UCB-Code/manny-boilerplate-jwt-authentication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../UCB-Code/clicky-game" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -49,15 +49,16 @@
     <property name="nodejs_package_manager_path" value="yarn" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/VirtualChiller" />
+      <recent name="$PROJECT_DIR$/client/src/containers/Authentication" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/client/src/containers" />
       <recent name="$PROJECT_DIR$/../../UCB-Code/twitch-battleRoyalMap-extension" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/src/containers/Authentication" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -118,7 +119,9 @@
       <workItem from="1573461199592" duration="9869000" />
       <workItem from="1573506656491" duration="3405000" />
       <workItem from="1573584662884" duration="12000" />
-      <workItem from="1573591150223" duration="17230000" />
+      <workItem from="1573591150223" duration="23514000" />
+      <workItem from="1573677736225" duration="19000" />
+      <workItem from="1573768465087" duration="27966000" />
     </task>
     <servers />
   </component>

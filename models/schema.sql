@@ -51,6 +51,7 @@ CREATE TABLE chillers(
     primary key     (id)
     );
 
+DROP TABLE IF EXISTS chillerData;
 CREATE TABLE chillerData(
 	id						INTEGER auto_increment,
     chillerID				INTEGER NOT NULL,
